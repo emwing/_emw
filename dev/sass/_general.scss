@@ -1,0 +1,244 @@
+// Main flexbox controls
+#pageWrap {
+  margin: 0 auto;
+  max-width: 125rem;
+  position: relative;
+  overflow-x: hidden;
+  background: $teal url("../img/site/herobg.jpg") repeat-x fixed; /* fallback */
+  background-image: url("../img/site/asanoha-pattern-opt.svg"), linear-gradient($beige, $teal); /* for general */
+  background-attachment: fixed;
+  background-size: auto 100vh; /* uses js to recalculate height and avoid shifting */
+  @include tablet {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
+    background: $white;
+  }
+}
+
+// set left and right sections to flex for non-mobile
+.flexSection { @include tablet { flex: 1 50%; } }
+
+// general text effects
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { font-family: $header-font; }
+
+h1,
+h2,
+h3 { margin: 0 0 0.75rem 0; }
+
+h4,
+h5,
+h6 { margin-bottom: 0.25rem; }
+
+h1 {
+  font-size: 1.25rem;
+  @include phablet { font-size: 1.5rem; }
+  @include tablet { font-size: 1.75rem; }
+  @include desktop { font-size: 2rem; }
+}
+h2 {
+  font-size: 1.125rem;
+  @include phablet { font-size: 1.25rem; }
+  @include tablet { font-size: 1.5rem; }
+  @include desktop { font-size: 1.75rem; }
+}
+h3 {
+  font-size: 1.0625rem;
+  @include phablet { font-size: 1.125rem; }
+  @include tablet { font-size: 1.25rem; }
+  @include desktop { font-size: 1.5rem; }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p { letter-spacing: 0.0625rem; }
+
+ol,
+ul,
+p { font-family: $copy-font; }
+
+ol,
+ul {
+  margin: 0 1rem;
+  font-size: 0.875rem;
+  @include desktop { font-size: 1rem; }
+}
+
+a {
+  text-decoration: none;
+  color: $teal;
+}
+
+
+// leftHeroSection controls
+#leftHeroSection {
+  @include tablet {
+    background: $teal url("../img/site/herobg.jpg") repeat-x fixed; /* fallback */
+    background-image: url("../img/site/asanoha-pattern-opt.svg"), linear-gradient($beige, $teal); /* for general */
+    background-attachment: fixed;
+  }
+}
+// set left and section's child divs to flex and fill screen
+#heroContainer { /* left section div only, uses js to recalculate height */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  @include tablet { justify-content: center; }
+}
+#picContent {
+  margin: 0 auto 2.5%;
+  width: 75%;
+  height: 17rem; /* uses js to recalculate height to 60% of screen height */
+  overflow: visible;
+  position: relative;
+  @include tablet { height: 60vh; margin: 0 auto; }
+}
+.picContent img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 90%;
+  opacity: 0.8;
+}
+.leftTextContent {
+  margin: 0.75rem 0 15%;
+  padding: .75rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: $white;
+  @include tablet {
+    margin: 1rem 0 5%;
+    padding: 1.5rem 3rem;
+  }
+}
+.leftTextContent p {
+  @include desktop {
+    margin: auto;
+    max-width: 30rem;
+  }
+}
+
+// rightInfoSection controls
+#rightInfoSection {
+  // background-color: $white;
+  -webkit-transition: all 360ms ease-in;
+  -moz-transition: all 360ms ease-in;
+  transition: all 360ms ease-in;
+  @include tablet { height: 100vh; }
+}
+.whiteBg { background-color: $white; }
+.silverBg { background-color: $silver; }
+
+.infoContainer { // set right sections' child divs to flex
+  min-height: 100vh;
+  @include tablet {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    height: 100vh;
+    border-left: 0.25rem solid $beige;
+  }
+  @include desktop { max-width: 48rem; }
+}
+.rightInfo { /* each article */
+  padding: 1rem;
+  @include tablet {
+    padding: 1rem 2rem;
+    align-self: stretch;
+  }
+}
+.rightTextContent p { margin-bottom: 1rem; }
+
+.articleImg { margin-bottom: 1rem; }
+
+.hideSection {
+  display: block;
+  @include tablet { display: none; }
+}
+
+.codeSample {
+  width: 90%;
+  max-height: 20rem;
+  overflow: auto;
+  background-color: $silver;
+  color: $white;
+}
+pre {
+  padding: 0.75rem;
+  display: block;
+  white-space: pre;
+  text-align: left;
+}
+
+
+// general flexbox controls
+.flexible {
+  @include tablet {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.flexItem33 {
+  padding-bottom: 1rem;
+  @include tablet { flex: 1 33.3333333333333%; }
+}
+.flexItem50 {
+  padding-bottom: 1rem;
+  @include tablet { flex: 1 50%; }
+}
+.flexItem100 {
+  @include tablet { flex: 1 100%; }
+}
+
+// footer controls
+  footer {
+    padding: 1rem;
+    background-color: $white;
+    color: $black;
+    text-align: center;
+    -webkit-transition: all 360ms ease-in;
+    -moz-transition: all 360ms ease-in;
+    transition: all 360ms ease-in;
+    @include tablet {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .whiteFoot { // on index mobile, on about when bg changes for skills sections
+    background-color: transparent;
+    color: $white;
+  }
+  footer.homeFoot { // landing page only
+    @include tablet { color: $black; }
+  }
+  .socialLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .socialLinks a i {
+    padding: 1rem;
+    flex: 1;
+  }

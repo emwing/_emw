@@ -1,3 +1,10 @@
+# Private Project files
+design
+.sass-cache
+.map
+*.map
+css.css.map
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
