@@ -2,22 +2,17 @@
 #picProfile {
   border: 0.125rem solid $teal;
   border-radius: 0.25rem;
+  opacity: 0.8;
 }
 
 // skill chart controls
-#skillsDesign,
-#skillsWeb,
-#skillsOffice { /* the parent article */
-  background-color: $silver;
+.rightSkill { /* the parent article */
   color: $white;
-  @include tablet {
-    display: none;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
+  padding: 2rem 1rem 0;
+  @include tablet { padding: 2rem 3rem 1rem 1rem; }
 }
 .skillBox { /* the div inside the article */
-  padding-bottom: 1rem;
+  padding-bottom: 0.875rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;

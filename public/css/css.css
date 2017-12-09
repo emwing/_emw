@@ -8,7 +8,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 html {
-  color: #222;
+  color: #111111;
   font-size: 16px;
   line-height: 1.375; }
   @media screen and (min-width: 769px) {
@@ -326,8 +326,8 @@ ul {
       font-size: 1rem; } }
 
 a {
-  text-decoration: none;
-  color: #00a4b3; }
+  color: #00a4b3;
+  text-decoration: none; }
 
 @media screen and (min-width: 769px) {
   #leftHeroSection {
@@ -341,6 +341,7 @@ a {
   /* left section div only, uses js to recalculate height */
   height: 100vh;
   display: flex;
+  /* set as flex container to position flex items near bottom for mobile */
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-end; }
@@ -352,26 +353,27 @@ a {
   margin: 0 auto 2.5%;
   width: 75%;
   height: 17rem;
-  /* uses js to recalculate height to 60% of screen height */
+  /* mobile uses js to recalculate height to 50% of screen height; this number functions as a placeholder */
   overflow: visible;
   position: relative; }
   @media screen and (min-width: 769px) {
     #picContent {
-      height: 60vh;
-      margin: 0 auto; } }
+      margin: 0 auto;
+      height: 60vh; } }
 
-.picContent img {
+#picContent img {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  max-height: 90%;
-  opacity: 0.8; }
+  max-height: 100%;
+  /* pay attention to this!! */
+  max-width: 100%; }
 
 .leftTextContent {
   margin: 0.75rem 0 15%;
   padding: .75rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   text-align: center;
   color: #ffffff; }
   @media screen and (min-width: 769px) {
@@ -386,8 +388,11 @@ a {
 
 #rightInfoSection {
   -webkit-transition: all 360ms ease-in;
+  /* for when #rightInfoSection needs to change bg color */
   -moz-transition: all 360ms ease-in;
-  transition: all 360ms ease-in; }
+  transition: all 360ms ease-in;
+  position: relative;
+  /* footer absolute to this container */ }
   @media screen and (min-width: 769px) {
     #rightInfoSection {
       height: 100vh; } }
@@ -395,91 +400,130 @@ a {
 .whiteBg {
   background-color: #ffffff; }
 
+/* js toggles these bgcolors on #rightInfoSection */
 .silverBg {
   background-color: #2D313A; }
 
-.infoContainer {
-  min-height: 100vh; }
+#infoContainer {
+  /* articles absolute to this container */ }
   @media screen and (min-width: 769px) {
-    .infoContainer {
+    #infoContainer {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: center;
       height: 100vh;
       border-left: 0.25rem solid #ffffe2; } }
   @media screen and (min-width: 1024px) {
-    .infoContainer {
-      max-width: 48rem; } }
+    #infoContainer {
+      max-width: 50rem; } }
 
 .rightInfo {
-  /* each article */
-  padding: 1rem; }
+  padding: 1rem;
+  -webkit-transition: all 360ms ease-in;
+  /* for when articles needs to change opacity */
+  -moz-transition: all 360ms ease-in;
+  transition: all 360ms ease-in; }
   @media screen and (min-width: 769px) {
     .rightInfo {
-      padding: 1rem 2rem;
-      align-self: stretch; } }
+      /* each article starts as visually hidden */
+      width: 100%;
+      padding: 1rem 4rem 1rem 2rem;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      visibility: hidden;
+      opacity: 0; } }
+
+.showSection {
+  /* js applies class as sideNav buttons clicked */
+  visibility: visible;
+  opacity: 1.0; }
 
 .rightTextContent p {
   margin-bottom: 1rem; }
 
-.articleImg {
-  margin-bottom: 1rem; }
+.rightTextContent p:last-child {
+  margin-bottom: 0.5rem; }
 
-.hideSection {
-  display: block; }
+#rightThumbSection {
+  position: relative;
+  /* footer absolute to this container */ }
   @media screen and (min-width: 769px) {
-    .hideSection {
-      display: none; } }
+    #rightThumbSection {
+      height: 100vh; } }
 
+#thumbContainer {
+  /* divs absolute to this container */
+  visibility: hidden;
+  /* for mobile devices, all images will be full size, no thumbnails needed */ }
+  @media screen and (min-width: 769px) {
+    #thumbContainer {
+      visibility: visible;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: center;
+      border-left: 0.25rem solid #ffffe2; } }
+  @media screen and (min-width: 1024px) {
+    #thumbContainer {
+      max-width: 50rem; } }
+
+@media screen and (min-width: 769px) {
+  .rightThumb {
+    margin: 0.5rem;
+    height: 10rem;
+    flex: 0 1 10rem;
+    background-color: #03e6fb;
+    border: 1px solid #2D313A; } }
+
+/* .articleImg { margin-bottom: 1rem; }
 .codeSample {
   width: 90%;
   max-height: 20rem;
   overflow: auto;
-  background-color: #2D313A;
-  color: #ffffff; }
-
+  background-color: $silver;
+  color: $white;
+}
 pre {
   padding: 0.75rem;
   display: block;
   white-space: pre;
-  text-align: left; }
-
-@media screen and (min-width: 769px) {
-  .flexible {
+  text-align: left;
+} */
+/* .flexible {
+  @include tablet {
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center; } }
-
+    justify-content: center;
+  }
+}
 .flexItem33 {
-  padding-bottom: 1rem; }
-  @media screen and (min-width: 769px) {
-    .flexItem33 {
-      flex: 1 33.3333333333333%; } }
-
+  padding-bottom: 1rem;
+  @include tablet { flex: 1 33.3333333333333%; }
+}
 .flexItem50 {
-  padding-bottom: 1rem; }
-  @media screen and (min-width: 769px) {
-    .flexItem50 {
-      flex: 1 50%; } }
-
-@media screen and (min-width: 769px) {
-  .flexItem100 {
-    flex: 1 100%; } }
-
+  padding-bottom: 1rem;
+  @include tablet { flex: 1 50%; }
+}
+.flexItem100 {
+  @include tablet { flex: 1 100%; }
+} */
 footer {
   padding: 1rem;
   background-color: #ffffff;
   color: #111111;
   text-align: center;
   -webkit-transition: all 360ms ease-in;
+  /* for when footer needs to change bg color */
   -moz-transition: all 360ms ease-in;
   transition: all 360ms ease-in; }
   @media screen and (min-width: 769px) {
     footer {
+      background-color: transparent;
       width: 100%;
       position: absolute;
       bottom: 0;
@@ -490,66 +534,91 @@ footer {
   background-color: transparent;
   color: #ffffff; }
 
-@media screen and (min-width: 769px) {
-  footer.homeFoot {
-    color: #111111; } }
-
 .socialLinks {
+  /* flex container to evenly space icons */
   display: flex;
   flex-direction: row;
   justify-content: center; }
 
+#btnTop,
 .socialLinks a i {
   padding: 1rem;
   flex: 1; }
 
-#iconNav,
-#buttonTopMobile,
-#buttonTopBg,
-#buttonTop {
-  padding: 0.75rem 1rem;
-  border: 0.125rem solid #ffffff;
-  border-radius: 0.25em;
-  background-color: rgba(0, 0, 0, 0.8); }
-  @media screen and (min-width: 769px) {
-    #iconNav,
-    #buttonTopMobile,
-    #buttonTopBg,
-    #buttonTop {
-      background-color: transparent;
-      border: none; } }
+#btnAbout {
+  margin: 1rem 2.25rem 0 0; }
 
-#iconNav {
+@media screen and (min-width: 769px) {
+  #btnNavOpen,
+  #btnNavClose {
+    display: none; } }
+
+#btnNavClose {
+  border: none;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 500; }
+
+#navContainer a.rightNavLink {
+  border-bottom: 1px solid #2D313A; }
+
+#navContainer a.rightNavLink:last-of-type {
+  border-bottom: none; }
+
+#iconNavOpen,
+#iconNavClose {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
   z-index: 500; }
   @media screen and (min-width: 769px) {
-    #iconNav {
+    #iconNavOpen,
+    #iconNavClose {
       top: 0.75rem;
       right: 0.75rem; } }
 
-#iconNav,
-#buttonMainNavClose,
-#buttonTopMobile,
-#buttonTopBg,
-#buttonTop {
+#iconNavOpen,
+#iconNavClose,
+#btnNavClose {
   color: #00a4b3;
   cursor: pointer; }
 
-#buttonTopMobile {
-  display: inline; }
-  @media screen and (min-width: 769px) {
-    #buttonTopMobile {
-      display: none; } }
+#iconNavOpen,
+#btnTop {
+  background-color: rgba(0, 0, 0, 0.9); }
 
-#buttonTopBg,
-#buttonTop {
-  display: none; }
+#iconNavOpen,
+#iconNavClose,
+#btnTop {
+  padding: 0.75rem 1rem; }
   @media screen and (min-width: 769px) {
-    #buttonTopBg,
-    #buttonTop {
-      display: inline; } }
+    #iconNavOpen,
+    #iconNavClose,
+    #btnTop {
+      background-color: transparent;
+      border: none; } }
+
+@media screen and (min-width: 769px) {
+  #btnTop {
+    display: none; } }
+
+/* mobile layout controled in general.scss, footer section */
+#iconNavOpen,
+#btnTop,
+.btnControl {
+  border: 0.125rem solid #ffffff;
+  border-radius: 0.25em; }
+
+.btnControl {
+  /* used on desktop homepage and other pages' next/previous section buttons */
+  margin-top: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 0.9375rem;
+  letter-spacing: 0.125rem;
+  text-transform: lowercase; }
 
 #navList {
   margin: 0;
@@ -563,13 +632,11 @@ footer {
   z-index: 1000;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-  list-style: none; }
+  background-color: rgba(0, 0, 0, 0.9); }
   @media screen and (min-width: 769px) {
     #navList {
       width: 40%; } }
 
-#buttonMainNavClose,
 #navList li a {
   display: block;
   padding: 1rem 3rem;
@@ -598,18 +665,16 @@ footer {
 #navList li a.currentPage {
   color: #007C88; }
 
-#buttonMainNavClose,
 #navList li:last-child a {
   border-bottom: none; }
 
-#buttonMainNavClose {
-  text-align: right; }
-
-#buttonMainNavClose:hover,
-#buttonMainNavClose:active,
+.btnControl:hover,
+.btnControl:active,
 #navList a:hover,
-#navList a:active {
-  background-color: rgba(0, 0, 0, 0.8);
+#navList a:active,
+#navContainer a.rightNavLink:hover,
+#navContainer a.rightNavLink:active {
+  background-color: rgba(0, 0, 0, 0.9);
   -webkit-animation: glow 0.35s ease-in;
   -moz-animation: glow 0.35s ease-in;
   animation: glow 0.35s ease-in; }
@@ -618,18 +683,36 @@ footer {
   from {
     background-color: transparent; }
   to {
-    background-color: rgba(0, 0, 0, 0.8); } }
+    background-color: rgba(0, 0, 0, 0.9); } }
 @-moz-keyframes glow {
   from {
     background-color: transparent; }
   to {
-    background-color: rgba(0, 0, 0, 0.8); } }
+    background-color: rgba(0, 0, 0, 0.9); } }
 @-keyframes glow {
   from {
     background-color: transparent; }
 
   to {
-    background-color: rgba(0, 0, 0, 0.8); } }
+    background-color: rgba(0, 0, 0, 0.9); } }
+#navList,
+#sideList {
+  list-style: none; }
+
+#sideNav {
+  display: none; }
+  @media screen and (min-width: 769px) {
+    #sideNav {
+      display: block;
+      width: 5rem;
+      position: absolute;
+      top: 50%;
+      right: -1rem;
+      transform: translateY(-50%);
+      z-index: 500;
+      text-align: center;
+      min-height: 12.5rem; } }
+
 #pageWrapHome {
   margin: 0 auto;
   max-width: 125rem;
@@ -645,6 +728,7 @@ footer {
     #pageWrapHome {
       background: none;
       display: flex;
+      /* flex container */
       align-items: stretch;
       flex-direction: row; } }
 
@@ -667,36 +751,12 @@ footer {
 .introContent {
   margin-bottom: 10%;
   padding: 1.5rem;
-  flex-grow: 1 auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff; }
   @media screen and (min-width: 769px) {
     .introContent {
       margin-bottom: 5%;
       padding: 1.5rem 3rem; } }
-
-.buttonControl {
-  /* animation controls same as rightNav */
-  margin-top: 1rem;
-  padding: 0.75rem 1rem;
-  border: 0.125rem solid #ffffff;
-  border-radius: 0.25em;
-  background-color: transparent;
-  color: #ffffff;
-  font-size: 0.9375rem;
-  letter-spacing: 0.125rem;
-  text-transform: lowercase; }
-
-#buttonAbout {
-  margin-right: 2.25rem; }
-
-#buttonNavOpen,
-#buttonNavClose {
-  /* hide buttons when screen size allows rightNav to show */ }
-  @media screen and (min-width: 769px) {
-    #buttonNavOpen,
-    #buttonNavClose {
-      display: none; } }
 
 #rightNav {
   padding: 0 1rem;
@@ -712,26 +772,25 @@ footer {
       background-color: transparent;
       border-left: 0.25rem solid #ffffe2; } }
 
-.navContainer {
+#navContainer {
+  /* child div of #rightNav section */
   position: relative;
   height: 100vh;
   display: flex;
+  /* flex container */
   flex-direction: column;
   align-items: stretch;
   justify-content: center; }
 
 .rightNavProject {
-  /* each article */
+  /* the article itself */
   padding: 0.5rem 3rem;
   align-self: stretch;
+  flex: 1;
+  /* flex item */
   display: flex;
+  /* flex container */
   justify-content: space-around; }
-
-.navContainer a.rightNavLink {
-  border-bottom: 1px solid #2D313A; }
-
-.navContainer a.rightNavLink:last-of-type {
-  border-bottom: none; }
 
 .rightNavSVG,
 .rightNavProject svg {
@@ -740,79 +799,43 @@ footer {
     .rightNavSVG,
     .rightNavProject svg {
       flex: 1;
+      /* flex item */
       display: block;
       object-fit: contain;
       align-self: baseline;
       fill: #00a4b3;
-      max-width: 3rem; } }
+      max-width: 3.5rem; } }
 
 .rightNavText {
+  padding-top: 1rem;
   flex: 2;
+  /* flex item */
   margin-left: 1rem;
   align-self: baseline; }
-
-#buttonNavClose {
-  border: none;
-  color: #00a4b3;
-  cursor: pointer;
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  z-index: 500; }
   @media screen and (min-width: 769px) {
-    #buttonNavClose {
-      top: 0.75rem;
-      right: 0.75rem; } }
+    .rightNavText {
+      padding-top: 0; } }
 
-a.rightNavLink {
-  color: #00a4b3; }
+@media screen and (min-width: 769px) {
+  .homeFoot {
+    color: #111111; } }
 
-.buttonControl:hover,
-.buttonControl:active,
-.navContainer a.rightNavLink:hover,
-.navContainer a.rightNavLink:active {
-  background-color: rgba(0, 0, 0, 0.8);
-  -webkit-animation: glow 0.35s ease-in;
-  -moz-animation: glow 0.35s ease-in;
-  animation: glow 0.35s ease-in; }
-
-@-webkit-keyframes glow {
-  from {
-    background-color: transparent; }
-  to {
-    background-color: rgba(0, 0, 0, 0.8); } }
-@-moz-keyframes glow {
-  from {
-    background-color: transparent; }
-  to {
-    background-color: rgba(0, 0, 0, 0.8); } }
-@-keyframes glow {
-  from {
-    background-color: transparent; }
-
-  to {
-    background-color: rgba(0, 0, 0, 0.8); } }
 #picProfile {
   border: 0.125rem solid #00a4b3;
-  border-radius: 0.25rem; }
+  border-radius: 0.25rem;
+  opacity: 0.8; }
 
-#skillsDesign,
-#skillsWeb,
-#skillsOffice {
+.rightSkill {
   /* the parent article */
-  background-color: #2D313A;
-  color: #ffffff; }
+  color: #ffffff;
+  padding: 2rem 1rem 0; }
   @media screen and (min-width: 769px) {
-    #skillsDesign,
-    #skillsWeb,
-    #skillsOffice {
-      display: none;
-      padding-top: 2rem;
-      padding-bottom: 2rem; } }
+    .rightSkill {
+      padding: 2rem 3rem 1rem 1rem; } }
 
 .skillBox {
   /* the div inside the article */
-  padding-bottom: 1rem;
+  padding-bottom: 0.875rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;

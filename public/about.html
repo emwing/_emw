@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Emily Wing | IDM Mid-Program Review</title>
+    <title>Emily Wing | About Me</title>
     <meta name="author" content="Emily Wing">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,28 +24,23 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
     <div id="pageWrap" class="flexContainer">
-      <nav id="mainNavLanding" class="mainNav">
+      <!-- main navigation -->
+      <nav id="mainNav" class="mainNav">
         <input type="checkbox" name="cntrlNav" id="cntrlNav" class="cntrlNav">
-        <label for="cntrlNav">
-          <i id="iconNav" class="fa fa-bars fa-2x"></i>
-        </label>
+        <label for="cntrlNav"><i id="iconNavOpen" class="fa fa-bars fa-2x"></i></label>
         <ul id="navList">
-          <label for="cntrlNav">
-            <li id="buttonMainNavClose">
-              <i class="fa fa-window-close fa-2x"></i>
-            </li>
-          </label>
+          <label for="cntrlNav"><i id="iconNavClose" class="fa fa-times fa-3x"></i></label>
           <li><a href="index.html">Home</a></li>
           <li><a href="#" class="currentPage">About</a></li>
           <li><a href="webdesign.html">Web Design &amp; Development</a></li>
-          <li><a href="#">Graphic Design &amp; Marketing</a></li>
-          <li><a href="#">Mini-Comics</a></li>
-          <li><a href="#">Illustrations &amp; Icons</a></li>
+          <li><a href="gradesign.html">Graphic Design &amp; Marketing</a></li>
+          <li><a href="comics.html">Mini-Comics</a></li>
+          <li><a href="illustrations.html">Illustrations &amp; Icons</a></li>
         </ul>
       </nav>
 
+      <!-- first section on mobile / left side of screen on desktops -->
       <div id="leftHeroSection" class="flexSection">
         <div id="heroContainer" class="heroContainer">
           <div id="picContent" class="picContent">
@@ -60,16 +55,29 @@
       </div> <!-- ends #leftHeroSection .flexSection -->
 
       <div id="rightInfoSection" class="flexSection whiteBg">
-        <div class="infoContainer">
-          <article id="backgroundInfo" class="rightInfo">
+        <!-- side navigation -->
+        <nav id="sideNav" class="sideNav">
+          <ul id="sideList">
+            <li id="first"><a href="#backgroundInfo"><i class="fa fa-angle-double-up fa-2x" aria-hidden="true"></i></a></li>
+            <li id="prev"><a href="#"><i class="fa fa-angle-up fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="#backgroundInfo">&#9673;</a></li> <!-- need to figure out js controls -->
+            <li><a href="#skillsDesign">&#9678;</a></li> <!-- need to figure out js controls -->
+            <li><a href="#skillsWeb">&#9678;</a></li> <!-- need to figure out js controls -->
+            <li><a href="#skillsOffice">&#9678;</a></li> <!-- need to figure out js controls -->
+            <li id="next"><a href="#"><i class="fa fa-angle-down fa-2x" aria-hidden="true"></i></a></li>
+            <li id="last"><a href="#skillsOffice"><i class="fa fa-angle-double-down fa-2x" aria-hidden="true"></i></a></li>
+          </ul>
+        </nav>
+        <div id="infoContainer">
+          <!-- articles -->
+          <article id="backgroundInfo" class="rightInfo _1 whiteBg">
             <div class="rightTextContent">
               <h3>A Bit About Me</h3>
-              <p>The goal of my work is to show and share the story. I've always had a fascination with storytelling: the choices of characters, subject, scene-framing, and pacing all play a part in creating a cohesive and memorable journey. I believe there's a story to tell in any medium, be it a comic or a&nbsp;website.</p>
+              <p>The goal of my work is to show and share its stories. I've always had a fascination with storytelling: the choices of characters, subject, scene-framing, and pacing all play a part in creating a cohesive and memorable journey. I believe there's a story to tell in any medium, be it a comic or a&nbsp;website.</p>
               <p>Born and currently based in the suburbs outside of Boston, Massachusetts, with my furry assistant, Suki, by my&nbsp;side.</p>
             </div>
-            <a href="#skillsDesign"><button type="button" id="buttonSkillsDesignN" class="buttonControl buttonTeal buttonHidden">Next</button></a>
           </article>
-          <article id="skillsDesign" class="rightInfo hideSection">
+          <article id="skillsDesign" class="rightSkill rightInfo _2 silverBg">
             <div class="rightTextContent skillChart">
               <h3>Design Software Skills</h3>
               <div class="skillBox">
@@ -114,11 +122,9 @@
                   <div class="skillLevel percent20"></div> <!-- ends .skillLevel -->
                 </div> <!-- ends .skillBar -->
               </div> <!-- ends .skillBox -->
-              <a href="#backgroundInfo"><button type="button" id="buttonBackgroundInfoP" class="buttonControl buttonHidden">Previous</button></a>
-              <a href="#skillsWeb"><button type="button" id="buttonSkillsWebN" class="buttonControl buttonHidden">Next</button></a>
             </div> <!-- ends .rightTextContent .skillChart -->
           </article>
-          <article id="skillsWeb" class="rightInfo hideSection">
+          <article id="skillsWeb" class="rightSkill rightInfo _3 silverBg">
             <div class="rightTextContent skillChart">
               <h3>Web Skills</h3>
               <div class="skillBox">
@@ -163,11 +169,9 @@
                   <div class="skillLevel percent20"></div> <!-- ends .skillLevel -->
                 </div> <!-- ends .skillBar -->
               </div> <!-- ends .skillBox -->
-              <a href="#skillsDesign"><button type="button" id="buttonSkillsDesignP" class="buttonControl buttonHidden">Previous</button></a>
-              <a href="#skillsOffice"><button type="button" id="buttonSkillsOfficeN" class="buttonControl buttonHidden">Next</button></a>
             </div> <!-- ends .rightTextContent .skillChart -->
           </article>
-          <article id="skillsOffice" class="rightInfo hideSection">
+          <article id="skillsOffice" class="rightSkill rightInfo _4 silverBg">
             <div class="rightTextContent skillChart">
               <h3>Office Software Skills</h3>
               <div class="skillBox">
@@ -212,24 +216,23 @@
                   <div class="skillLevel percent20"></div> <!-- ends .skillLevel -->
                 </div> <!-- ends .skillBar -->
               </div> <!-- ends .skillBox -->
-              <a href="#skillsWeb"><button type="button" id="buttonSkillsWebP" class="buttonControl buttonHidden">Previous</button></a>
             </div> <!-- ends .rightTextContent .skillChart -->
           </article>
-          <footer class="pageFoot" id="aboutFoot">
-            <div class="positionWrap">
-              <div class="socialLinks">
-                <a href="http://facebook.com/emily.m.wing" target="_blank" title="Follow me on Facebook"><i class="fa fa-facebook fa-lg"></i></a>
-                <a href="https://twitter.com/EmilyWing0" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-lg"></i></a>
-                <a href="https://www.pinterest.com/emilymwing/" target="_blank" title="Follow me on Pinterest"><i class="fa fa-pinterest fa-lg"></i></a>
-                <a href="https://www.linkedin.com/in/emily-wing" target="_blank" title="Connect with me on LinkedIn"><i class="fa fa-linkedin fa-lg"></i></a>
-                <a href="mailto:emwing@emily-wing.com" target="_top" title="Send me an E-mail"><i class="fa fa-envelope fa-lg"></i></a>
-                <a href="#"><label for="returnToTop" id="buttonTopMobile" class="buttonReturn"><i class="fa fa-arrow-up fa-lg"></i></label></a>
-                <a href="#" title="Return to Top"><label for="returnToTop" id="buttonTopBg" class="buttonReturn"><i class="fa fa-arrow-up fa-lg"></i></label></a>
-              </div>
-              <p>&copy;2017 Emily Wing</p>
-            </div> <!-- ends .positionWrap -->
-          </footer>
         </div> <!-- ends #infoContainer -->
+        <!-- footer -->
+        <footer class="pageFoot" id="aboutFoot">
+          <div class="positionWrap">
+            <div class="socialLinks">
+              <a href="http://facebook.com/emily.m.wing" target="_blank" title="Follow me on Facebook"><i class="fa fa-facebook fa-lg"></i></a>
+              <a href="https://twitter.com/EmilyWing0" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter fa-lg"></i></a>
+              <a href="https://www.pinterest.com/emilymwing/" target="_blank" title="Follow me on Pinterest"><i class="fa fa-pinterest fa-lg"></i></a>
+              <a href="https://www.linkedin.com/in/emily-wing" target="_blank" title="Connect with me on LinkedIn"><i class="fa fa-linkedin fa-lg"></i></a>
+              <a href="mailto:emwing@emily-wing.com" target="_blank" title="Send me an E-mail"><i class="fa fa-envelope fa-lg"></i></a>
+              <a href="#"><i id="btnTop" class="fa fa-arrow-up fa-lg"></i></a>
+            </div>
+            <p>&copy;2017 Emily Wing</p>
+          </div> <!-- ends .positionWrap -->
+        </footer>
       </div> <!-- ends #rightInfoSection .flexSection -->
     </div> <!-- ends #pageWrap -->
 

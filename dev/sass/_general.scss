@@ -1,4 +1,4 @@
-// Main flexbox controls
+// pageWrap flexbox container controls
 #pageWrap {
   margin: 0 auto;
   max-width: 125rem;
@@ -17,11 +17,11 @@
     background: $white;
   }
 }
-
-// set left and right sections to flex for non-mobile
+// set left and right sections to flex items for non-mobile split screen
 .flexSection { @include tablet { flex: 1 50%; } }
 
-// general text effects
+
+// general text controls
 h1,
 h2,
 h3,
@@ -76,8 +76,8 @@ ul {
 }
 
 a {
-  text-decoration: none;
   color: $teal;
+  text-decoration: none;
 }
 
 
@@ -92,7 +92,7 @@ a {
 // set left and section's child divs to flex and fill screen
 #heroContainer { /* left section div only, uses js to recalculate height */
   height: 100vh;
-  display: flex;
+  display: flex; /* set as flex container to position flex items near bottom for mobile */
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-end;
@@ -101,23 +101,26 @@ a {
 #picContent {
   margin: 0 auto 2.5%;
   width: 75%;
-  height: 17rem; /* uses js to recalculate height to 60% of screen height */
+  height: 17rem; /* mobile uses js to recalculate height to 50% of screen height; this number functions as a placeholder */
   overflow: visible;
   position: relative;
-  @include tablet { height: 60vh; margin: 0 auto; }
+  @include tablet {
+    margin: 0 auto;
+    height: 60vh;
+  }
 }
-.picContent img {
+#picContent img {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  max-height: 90%;
-  opacity: 0.8;
+  max-height: 100%; /* pay attention to this!! */
+  max-width: 100%;
 }
 .leftTextContent {
   margin: 0.75rem 0 15%;
   padding: .75rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   text-align: center;
   color: $white;
   @include tablet {
@@ -134,44 +137,80 @@ a {
 
 // rightInfoSection controls
 #rightInfoSection {
-  // background-color: $white;
-  -webkit-transition: all 360ms ease-in;
+  -webkit-transition: all 360ms ease-in; /* for when #rightInfoSection needs to change bg color */
   -moz-transition: all 360ms ease-in;
   transition: all 360ms ease-in;
+  position: relative; /* footer absolute to this container */
   @include tablet { height: 100vh; }
 }
-.whiteBg { background-color: $white; }
+.whiteBg { background-color: $white; } /* js toggles these bgcolors on #rightInfoSection */
 .silverBg { background-color: $silver; }
 
-.infoContainer { // set right sections' child divs to flex
-  min-height: 100vh;
+// for when the rightInfoSection contains text articles
+#infoContainer { /* articles absolute to this container */
   @include tablet {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: center;
     height: 100vh;
     border-left: 0.25rem solid $beige;
   }
-  @include desktop { max-width: 48rem; }
+  @include desktop { max-width: 50rem; }
 }
-.rightInfo { /* each article */
+.rightInfo {
   padding: 1rem;
-  @include tablet {
-    padding: 1rem 2rem;
-    align-self: stretch;
+  -webkit-transition: all 360ms ease-in; /* for when articles needs to change opacity */
+  -moz-transition: all 360ms ease-in;
+  transition: all 360ms ease-in;
+  @include tablet { /* each article starts as visually hidden */
+    width: 100%;
+    padding: 1rem 4rem 1rem 2rem;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    visibility: hidden;
+    opacity: 0;
   }
 }
+.showSection { /* js applies class as sideNav buttons clicked */
+  visibility: visible;
+  opacity: 1.0;
+}
 .rightTextContent p { margin-bottom: 1rem; }
+.rightTextContent p:last-child { margin-bottom: 0.5rem; }
 
-.articleImg { margin-bottom: 1rem; }
-
-.hideSection {
-  display: block;
-  @include tablet { display: none; }
+// for when the right side contains img thumbnails
+// rightThumbSection controls
+#rightThumbSection {
+  position: relative; /* footer absolute to this container */
+  @include tablet { height: 100vh; }
+}
+#thumbContainer { /* divs absolute to this container */
+  // height: 0;
+  visibility: hidden; /* for mobile devices, all images will be full size, no thumbnails needed */
+  @include tablet {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    border-left: 0.25rem solid $beige;
+  }
+  @include desktop { max-width: 50rem; }
+}
+.rightThumb {
+  @include tablet {
+    margin: 0.5rem;
+    height: 10rem;
+    flex: 0 1 10rem;
+    background-color: $cyan;
+    border: 1px solid $silver;
+  }
 }
 
+/* .articleImg { margin-bottom: 1rem; }
 .codeSample {
   width: 90%;
   max-height: 20rem;
@@ -184,11 +223,11 @@ pre {
   display: block;
   white-space: pre;
   text-align: left;
-}
+} */
 
 
-// general flexbox controls
-.flexible {
+// general flexbox controls for article flex rows
+/* .flexible {
   @include tablet {
     width: 100%;
     display: flex;
@@ -207,38 +246,40 @@ pre {
 }
 .flexItem100 {
   @include tablet { flex: 1 100%; }
-}
+} */
+
+
+
 
 // footer controls
-  footer {
-    padding: 1rem;
-    background-color: $white;
-    color: $black;
-    text-align: center;
-    -webkit-transition: all 360ms ease-in;
-    -moz-transition: all 360ms ease-in;
-    transition: all 360ms ease-in;
-    @include tablet {
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-  .whiteFoot { // on index mobile, on about when bg changes for skills sections
+footer {
+  padding: 1rem;
+  background-color: $white;
+  color: $black;
+  text-align: center;
+  -webkit-transition: all 360ms ease-in; /* for when footer needs to change bg color */
+  -moz-transition: all 360ms ease-in;
+  transition: all 360ms ease-in;
+  @include tablet {
     background-color: transparent;
-    color: $white;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
-  footer.homeFoot { // landing page only
-    @include tablet { color: $black; }
-  }
-  .socialLinks {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .socialLinks a i {
-    padding: 1rem;
-    flex: 1;
-  }
+}
+.whiteFoot { // on index mobile, on about when bg changes for skills sections
+  background-color: transparent;
+  color: $white;
+}
+.socialLinks { /* flex container to evenly space icons */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#btnTop, /* flex items */
+.socialLinks a i {
+  padding: 1rem;
+  flex: 1;
+}
