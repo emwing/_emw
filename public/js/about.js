@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // sideNav controls for #rightInfoSection #infoContainer articles (referenced from http://jsfiddle.net/TrueBlueAussie/aVJBY/468/ )
-    // ****** TO DO: find way to hook in dot links? Try to make this would work for the non-About pages if needed ******
+    // ****** TO DO: find way to hook in radio buttons? Try to make this would work for the non-About pages if needed ******
     // define the variables for this function
     var $prev = $("#prev");
     var $first = $("#first");
@@ -22,9 +22,11 @@ $(document).ready(function() {
     // Hide/show the first/last arrows and next/prev arrows if at first or last article
       if ($bgInfo.hasClass("showSection")) {
         $prev.add($first).css("visibility", "hidden");
+        $("#radio1").prop("checked", true);
       } else { $prev.add($first).css("visibility", ""); }
       if ($("#skillsOffice").hasClass("showSection")) {
         $next.add($last).css("visibility", "hidden");
+        $("#radio4").prop("checked", true);
       } else { $next.add($last).css("visibility", ""); }
     // change #rightInfoSection bg  *** ABOUT PAGE ONLY *** (if any of the skill sections are visible, change the #rightInfoSection's bg to silver; if the #backgroundInfo, make #rightInfoSection's bg white)
       if ($info.hasClass("rightSkill") && $info.hasClass("showSection")) {
