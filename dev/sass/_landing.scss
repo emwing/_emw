@@ -18,6 +18,15 @@
 
 
 // leftHeroSection index page-only controls
+#heroContainer { /* left section div only, uses js to recalculate height */
+  height: 100vh;
+  display: flex; /* set as flex container to position flex items near bottom for mobile */
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  position: relative;
+  @include tablet { justify-content: center; }
+}
 #logowing {  /* logo controls (double wings) */
   margin: 0 auto 2.5%;
   display: block;
