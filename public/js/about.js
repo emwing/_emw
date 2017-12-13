@@ -6,11 +6,11 @@ $(document).ready(function() {
     var $first = $("#first");
     var $next = $("#next");
     var $last = $("#last");
+    var $ris = $("#rightInfoSection");
+    var $bgInfo = $("#backgroundInfo");
 
     function updateItems(delta) {
-      var $ris = $("#rightInfoSection");
       var $foot = $("footer");
-      var $bgInfo = $("#backgroundInfo");
       var $info = $('#infoContainer').children(); /* get all the articles */
       var $show = $info.filter('.showSection'); /* count number of articles with .showSection */
       $show = $show.length ? $show : $info.first(); /* if a number of articles.showSection exists, then leave alone, otherwise give the first article .showSection */
@@ -22,11 +22,9 @@ $(document).ready(function() {
     // Hide/show the first/last arrows and next/prev arrows if at first or last article
       if ($bgInfo.hasClass("showSection")) {
         $prev.add($first).css("visibility", "hidden");
-        $("#radio1").prop("checked", true);
       } else { $prev.add($first).css("visibility", ""); }
       if ($("#skillsOffice").hasClass("showSection")) {
         $next.add($last).css("visibility", "hidden");
-        $("#radio4").prop("checked", true);
       } else { $next.add($last).css("visibility", ""); }
     // change #rightInfoSection bg  *** ABOUT PAGE ONLY *** (if any of the skill sections are visible, change the #rightInfoSection's bg to silver; if the #backgroundInfo, make #rightInfoSection's bg white)
       if ($info.hasClass("rightSkill") && $info.hasClass("showSection")) {
@@ -45,17 +43,25 @@ $(document).ready(function() {
     // initial selection on page load
     updateItems(0);
     // clicking next/previous
-    $next.click(function () { updateItems(1); });
-    $prev.click(function () { updateItems(-1); });
+    $next.click(function (event) {
+      event.preventDefault();
+      updateItems(1);
+    });
+    $prev.click(function (event) {
+      event.preventDefault();
+      updateItems(-1);
+    });
 
     // clicking first/last *** ABOUT PAGE ONLY ***
-    $first.click(function () {
+    $first.click(function (event) {
+      event.preventDefault();
       $(".rightSkill").removeClass("showSection");
       $ris.removeClass("silverBg");
       $ris.addClass("whiteBg");
       updateItems(0);
     });
-    $last.click(function () {
+    $last.click(function (event) {
+      event.preventDefault();
       if ($bgInfo.hasClass("showSection")) { updateItems(3); }
       if ($("#skillsDesign").hasClass("showSection")) { updateItems(2); }
       if ($("#skillsWeb").hasClass("showSection")) { updateItems(1); }
