@@ -23,7 +23,7 @@ $(document).ready(function() {
       if ($bgInfo.hasClass("showSection")) {
         $prev.add($first).css("visibility", "hidden");
       } else { $prev.add($first).css("visibility", ""); }
-      
+
       if ($("#skillsOffice").hasClass("showSection")) {
         $next.add($last).css("visibility", "hidden");
       } else { $next.add($last).css("visibility", ""); }
@@ -43,7 +43,8 @@ $(document).ready(function() {
   // run updateItems function to add/remove .showSection to each article based on updated index
     // initial selection on page load
     updateItems(0);
-    // clicking next/previous
+
+  // clicking next/previous
     $next.click(function (event) {
       event.preventDefault();
       updateItems(1);
