@@ -245,8 +245,12 @@ img {
       background: #ffffff; } }
 
 @media screen and (min-width: 769px) {
-  .flexSection {
-    flex: 1 50%; } }
+  .flexSection60 {
+    flex: 1 60%; } }
+
+@media screen and (min-width: 769px) {
+  .flexSection40 {
+    flex: 1 40%; } }
 
 h1,
 h2,
@@ -359,10 +363,10 @@ a {
       padding-top: 0rem; } }
 
 .leftImage {
-  -webkit-transition: all 360ms ease-in;
+  -webkit-transition: all 360ms ease-out;
   /* for when iamges needs to change opacity */
-  -moz-transition: all 360ms ease-in;
-  transition: all 360ms ease-in;
+  -moz-transition: all 360ms ease-out;
+  transition: all 360ms ease-out;
   display: flex;
   /* set as flex container to position flex items near bottom for mobile */
   flex-direction: column;
@@ -413,9 +417,7 @@ div#heroImg {
   /* container for "stacked" images (comics, etc) */
   border: 0.125rem solid #2D313A;
   border-radius: 0.125rem;
-  -ms-transform-origin: 0% 135%;
-  -webkit-transform-origin: 0% 135%;
-  transform-origin: 0% 135%; }
+  cursor: pointer; }
 
 .hiddenPage {
   /* settings for "default" hidden "stacked" images (comics, etc) */
@@ -448,10 +450,16 @@ img.first {
     .leftTextContent {
       margin: 1rem 0 2.5%; } }
 
-@media screen and (min-width: 1024px) {
-  .leftTextContent p {
-    margin: auto;
-    max-width: 30rem; } }
+.leftTextContent p {
+  text-align: left; }
+  @media screen and (min-width: 769px) {
+    .leftTextContent p {
+      margin: auto;
+      max-width: 35rem; } }
+  @media screen and (min-width: 1024px) {
+    .leftTextContent p {
+      margin: auto;
+      max-width: 37.5rem; } }
 
 #rightInfoSection {
   -webkit-transition: all 360ms ease-in;
@@ -556,7 +564,8 @@ img.first {
       background-size: 110%;
       opacity: 0.7;
       -webkit-filter: grayscale(100%);
-      filter: gray; } }
+      filter: gray;
+      cursor: pointer; } }
   @media screen and (min-width: 1024px) {
     .rightThumb {
       height: 8rem;
@@ -930,6 +939,9 @@ footer {
   border: 0.125rem solid #00a4b3;
   border-radius: 0.25rem;
   opacity: 0.8; }
+
+.aboutCenterP p {
+  text-align: center; }
 
 .rightSkill {
   /* the parent article */

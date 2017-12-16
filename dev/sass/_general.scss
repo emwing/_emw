@@ -18,7 +18,9 @@
   }
 }
 // set left and right sections to flex items for non-mobile split screen
-.flexSection { @include tablet { flex: 1 50%; } }
+// .flexSection { @include tablet { flex: 1 50%; } }
+  .flexSection60 { @include tablet { flex: 1 60%; } }
+  .flexSection40 { @include tablet { flex: 1 40%; } }
 
 
 // general text controls
@@ -107,9 +109,9 @@ a {
   @include tablet { padding-top: 0rem; }
 }
 .leftImage {
-  -webkit-transition: all 360ms ease-in; /* for when iamges needs to change opacity */
-  -moz-transition: all 360ms ease-in;
-  transition: all 360ms ease-in;
+  -webkit-transition: all 360ms ease-out; /* for when iamges needs to change opacity */
+  -moz-transition: all 360ms ease-out;
+  transition: all 360ms ease-out;
   display: flex; /* set as flex container to position flex items near bottom for mobile */
   flex-direction: column;
   align-items: stretch;
@@ -152,9 +154,7 @@ div#heroImg { background-color: transparent; }
 .frame img { /* container for "stacked" images (comics, etc) */
   border: 0.125rem solid $silver;
   border-radius: 0.125rem;
-  -ms-transform-origin: 0% 135%;
-  -webkit-transform-origin: 0% 135%;
-  transform-origin: 0% 135%;
+  cursor: pointer;
 }
 .hiddenPage { /* settings for "default" hidden "stacked" images (comics, etc) */
   visibility: hidden;
@@ -184,9 +184,14 @@ img.first { /* settings for "default" hidden "stacked" images's first page (comi
   @include desktop { margin: 1rem 0 2.5%; }
 }
 .leftTextContent p {
+  text-align: left;
+  @include tablet {
+    margin: auto;
+    max-width: 35rem;
+  }
   @include desktop {
     margin: auto;
-    max-width: 30rem;
+    max-width: 37.5rem;
   }
 }
 
@@ -273,6 +278,7 @@ img.first { /* settings for "default" hidden "stacked" images's first page (comi
     opacity: 0.7;
     -webkit-filter: grayscale(100%);
     filter: gray;
+    cursor: pointer;
   }
   @include desktop {
     height: 8rem;
