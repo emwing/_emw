@@ -23,6 +23,7 @@ $(document).ready(function() {
       if ($bgInfo.hasClass("showSection")) {
         $prev.add($first).css("visibility", "hidden");
       } else { $prev.add($first).css("visibility", ""); }
+      
       if ($("#skillsOffice").hasClass("showSection")) {
         $next.add($last).css("visibility", "hidden");
       } else { $next.add($last).css("visibility", ""); }
@@ -52,7 +53,7 @@ $(document).ready(function() {
       updateItems(-1);
     });
 
-    // clicking first/last *** ABOUT PAGE ONLY ***
+  // clicking first/last *** ABOUT PAGE ONLY ***
     $first.click(function (event) {
       event.preventDefault();
       $(".rightSkill").removeClass("showSection");
@@ -66,4 +67,6 @@ $(document).ready(function() {
       if ($("#skillsDesign").hasClass("showSection")) { updateItems(2); }
       if ($("#skillsWeb").hasClass("showSection")) { updateItems(1); }
     });    // ends sideNav controls (for now...) ... try using a slideshow code for reference to update (https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_slideshow_dots2)?
+
+
 }); // ends document ready

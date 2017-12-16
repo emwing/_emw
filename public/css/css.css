@@ -337,16 +337,26 @@ a {
     /* for general */
     background-attachment: fixed; } }
 
-#artContainer {
+#artContainer,
+#artContainerLayered {
   /* left section div only, uses js to recalculate height */
   position: relative; }
   @media screen and (min-width: 769px) {
-    #artContainer {
+    #artContainer,
+    #artContainerLayered {
       height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: stretch;
       justify-content: center; } }
+
+#theFoldsOfFlowersComic,
+#weatherButtons {
+  padding-top: 3rem; }
+  @media screen and (min-width: 769px) {
+    #theFoldsOfFlowersComic,
+    #weatherButtons {
+      padding-top: 0rem; } }
 
 .leftImage {
   -webkit-transition: all 360ms ease-in;
@@ -377,8 +387,8 @@ div#heroImg {
 
 #picContent,
 .picContent {
-  margin: 0 auto 2.5%;
-  width: 75%;
+  margin: 0 auto;
+  width: 85%;
   height: 17rem;
   /* mobile uses js to recalculate height to 50% of screen height; this number functions as a placeholder */
   overflow: visible;
@@ -400,11 +410,32 @@ div#heroImg {
   max-width: 100%; }
 
 .frame img {
+  /* container for "stacked" images (comics, etc) */
   border: 0.125rem solid #2D313A;
-  border-radius: 0.125rem; }
+  border-radius: 0.125rem;
+  -ms-transform-origin: 0% 135%;
+  -webkit-transform-origin: 0% 135%;
+  transform-origin: 0% 135%; }
+
+.hiddenPage {
+  /* settings for "default" hidden "stacked" images (comics, etc) */
+  visibility: hidden;
+  opacity: 0;
+  z-index: -100; }
+
+img.first {
+  /* settings for "default" hidden "stacked" images's first page (comics, etc) */
+  visibility: visible;
+  opacity: 1;
+  z-index: 100; }
+  @media screen and (min-width: 769px) {
+    img.first {
+      visibility: inherit;
+      opacity: inherit;
+      z-index: inherit; } }
 
 .leftTextContent {
-  margin: 0.75rem 0 15%;
+  margin: 0.75rem 0 13.5%;
   padding: .75rem;
   background-color: rgba(0, 0, 0, 0.6);
   text-align: center;
@@ -413,6 +444,9 @@ div#heroImg {
     .leftTextContent {
       margin: 1rem 0 5%;
       padding: 1.5rem 3rem; } }
+  @media screen and (min-width: 1024px) {
+    .leftTextContent {
+      margin: 1rem 0 2.5%; } }
 
 @media screen and (min-width: 1024px) {
   .leftTextContent p {
@@ -469,7 +503,8 @@ div#heroImg {
 .showSection {
   /* js applies class as sideNav buttons clicked */
   visibility: visible;
-  opacity: 1.0; }
+  opacity: 1.0;
+  z-index: 100; }
 
 .rightTextContent p {
   margin-bottom: 1rem; }
@@ -902,7 +937,7 @@ footer {
   padding: 2rem 1rem 0; }
   @media screen and (min-width: 769px) {
     .rightSkill {
-      padding: 2rem 3rem 1rem 1rem; } }
+      padding: 2rem 3rem 1rem 2rem; } }
 
 .skillBox {
   /* the div inside the article */

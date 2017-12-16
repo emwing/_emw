@@ -1,30 +1,21 @@
 $(document).ready(function() {
   // when viewing on desktop, set the thumbnail bg image to match the fullsized version; referenced from http://html-tuts.com/div-background-image-from-img-src-jquery/
-  /* *********** TO DO: figure out how to streamline this!! *********** */
-    // get the fullsized image source
-    var getImgSrc05 = $(".art05 .frame img").attr("src");
-    var getImgSrc06 = $(".art06 .frame img").attr("src");
-    var getImgSrc07 = $(".art07 .frame img").attr("src");
-    var getImgSrc08 = $(".art08 .frame img").attr("src");
-    var getImgSrc09 = $(".art09 .frame img").attr("src");
-    var getImgSrc10 = $(".art10 .frame img").attr("src");
-    var getImgSrc11 = $(".art11 .frame img").attr("src");
-    var getImgSrc12 = $(".art12 .frame img").attr("src");
-
-    // set the background image of the thumb to the corresponding image source
-    $("#thumb05").css("background-image", "url(" + getImgSrc05 + ")");
-    $("#thumb06").css("background-image", "url(" + getImgSrc06 + ")");
-    $("#thumb07").css("background-image", "url(" + getImgSrc07 + ")");
-    $("#thumb08").css("background-image", "url(" + getImgSrc08 + ")");
-    $("#thumb09").css("background-image", "url(" + getImgSrc09 + ")");
-    $("#thumb10").css("background-image", "url(" + getImgSrc10 + ")");
-    $("#thumb11").css("background-image", "url(" + getImgSrc11 + ")");
-    $("#thumb12").css("background-image", "url(" + getImgSrc12 + ")");
+    // get each fullsized img source and create as an array (referenced from https://stackoverflow.com/questions/2355025/jquery-get-img-source-attributes-from-list-and-push-into-array)
+    var $arrayOfFull = $("img.first").map(function() {
+      return $(this).attr("src");
+    });
+    // get the index# for each thumb
+    // set the background image to the source img from the corresponding array by index number
+    var $thumbnail = $(".rightThumb");
+      $thumbnail.each(function( index ) {
+        $(this).css("background-image", "url(" + $arrayOfFull[index] + ")");
+      });
 
 
-  // "slideshow" controls for #leftHeroSection divs (referenced from http://jsfiddle.net/TrueBlueAussie/aVJBY/468/ )
-  // when viewing on desktop, click on thumbnail on right side will change image on left side to fullsized view of thumbnail image
-    // define the variables for this function
+  // image controls for #leftHeroSection divs (referenced from http://jsfiddle.net/TrueBlueAussie/aVJBY/468/ )
+  // when viewing on desktop:
+    // click on thumbnail on right side triggers image on left side to change to corresponding fullsized image of thumbnail
+    /* define the variables for this function */
     function showPortfolio(delta) {
       var $images = $('.leftImage'); /* get all the left divs */
       var $show = $images.filter('.showSection'); /* count number of divs with .showSection */
@@ -36,17 +27,43 @@ $(document).ready(function() {
       $show = $images.eq(index).addClass('showSection'); /* add .showSection to div that matches the index number */
     } /* end definition of updateItems function */
 
-  // run updateItems function to add/remove .showSection to each article based on updated index
-    // initial selection on page load
+  // run showPortfolio function to add/remove .showSection to each image based on updated index
+    // show the page hero image and info (index 0) on page load
     showPortfolio(0);
 
   // clicking each thumbnail changes the leftHeroSection (referenced from https://stackoverflow.com/questions/23524122/get-last-character-from-id-attribute)
-  $(".rightThumb").click(function() {
-    $currentId = this.id.slice(-2); // get the clicked thumbnail's id#
-    $hideContent = $(".leftImage");
-    $showContent = $(".art" + $currentId); // get the corresponding fullsized image
-    $hideContent.removeClass('showSection');
-    $showContent.addClass('showSection');
-  });
+    $(".rightThumb").click(function() {
+      $currentId = this.id.slice(-2); // get the clicked thumbnail's id#
+      $hideContent = $(".leftImage");
+      $showContent = $(".art" + $currentId); // get the corresponding fullsized image
+      $showPage = $showContent.find("img.first");
+      $hideContent.removeClass('showSection');
+      $showContent.addClass('showSection');
+      $showPage.removeClass('hiddenPage');
+      $showPage.addClass('showSection');
+    });
+
+
+  // cycle through the pages (referenced: https://www.youtube.com/watch?v=Xwq1Hj1DyDM)
+    var $hiddenPages = $("#artContainerLayered"); /* use the parent container to target its children */
+    $hiddenPages.click(turnPage);
+
+    function turnPage(event) {
+      var $target = $(event.target);
+      if ((event.target !== event.currentTarget) && ($target.is("img"))) {
+        $target.removeClass('showSection');
+        $target.addClass('hiddenPage');
+        $target.next().removeClass('hiddenPage');
+        $target.next().addClass('showSection');
+
+        if ($target.hasClass("last") && (event.target !== event.currentTarget)) {
+          var $firstPage = $target.siblings("img.first");
+          $firstPage.removeClass('hiddenPage');
+          $firstPage.addClass('showSection');
+          }
+      }
+      event.stopPropagation();
+    }
+
 
 }); // ends document ready

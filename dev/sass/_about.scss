@@ -9,7 +9,7 @@
 .rightSkill { /* the parent article */
   color: $white;
   padding: 2rem 1rem 0;
-  @include tablet { padding: 2rem 3rem 1rem 1rem; }
+  @include tablet { padding: 2rem 3rem 1rem 2rem; }
 }
 .skillBox { /* the div inside the article */
   padding-bottom: 0.875rem;
