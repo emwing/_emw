@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var $images = $(".leftImage"); /* get all the left divs */
-  var $hiddenPages = $("#artContainerLayered"); /* use the parent container to target its children */
+  var $hiddenPages = $("#artContainerLayered"); /* use the parent container to target its children (used in turnPage())*/
   var $imgFirst = $("img.first"); /* get all the fullsized images */
   var $arrayOfsrc = $("img.first").map(function() { /* get the img src for all the fullsized images */
     return $(this).attr("src");
@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 
   // turn the pages (referenced: https://www.youtube.com/watch?v=Xwq1Hj1DyDM)
-    // var $hiddenPages = $("#artContainerLayered"); /* use the parent container to target its children */
+        /* var $hiddenPages = $("#artContainerLayered"); moved to global */
     $hiddenPages.click(turnPage);
 
     function turnPage(event) {
