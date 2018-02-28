@@ -49,7 +49,7 @@ $(document).ready(function() {
     });
 
 
-  // turn the pages (referenced: https://www.youtube.com/watch?v=Xwq1Hj1DyDM)
+  // turn the comic pages (referenced: https://www.youtube.com/watch?v=Xwq1Hj1DyDM)
         /* var $hiddenPages = $("#artContainerLayered"); moved to global */
     $hiddenPages.click(turnPage);
 
@@ -62,7 +62,7 @@ $(document).ready(function() {
         $target.next().removeClass('hiddenPage');
         $target.next().addClass('showSection');
 
-        // and if the page that was clicked was the last one, return to the first page
+        // and if the comic page that was clicked was the last one, return to the first page
         if ($target.hasClass("last") && (event.target !== event.currentTarget)) {
           var $firstPage = $target.siblings("img.first");
           $firstPage.removeClass('hiddenPage');

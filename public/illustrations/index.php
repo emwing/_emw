@@ -1,8 +1,8 @@
-<?php require "inc/htmlStartHead.php"; ?>
+<?php require "../inc/htmlStartHead.php"; ?>
 
     <div id="pageWrap" class="flexContainer">
       <!-- main navigation -->
-      <?php require "navMain.php"; ?>
+      <?php require "../inc/navMain.php"; ?>
 
       <!-- first section on mobile / left side of screen on desktops -->
       <div id="leftHeroSection" class="flexSection60">
@@ -10,7 +10,7 @@
           <!-- full images -->
           <div id="heroImg" class="leftImage">
             <div id="picContent" class="picContent">
-              <img src="img/site/iconIllustrations.svg" title="Illustrations &amp; Icons" alt="Illustrations Icon">
+              <img src="../img/site/iconIllustrations.svg" title="Illustrations &amp; Icons" alt="Illustrations Icon">
             </div> <!-- ends .picContent -->
             <div class="leftTextContent">
               <h1>Illustrations &amp; Icons</h1>
@@ -19,7 +19,7 @@
           </div> <!-- ends #heroImg .leftImage -->
           <div id="weatherButtons" class="leftImage">
             <div class="picContent frame">
-              <img src="img/illu/weatherButtons.jpg" title="Weather Buttons" alt="Set of Weather Icons for Pin-back Buttons" class="first">
+              <img src="../img/illu/weatherButtons.jpg" title="Weather Buttons" alt="Set of Weather Icons for Pin-back Buttons" class="first">
             </div> <!-- ends .picContent -->
             <div class="leftTextContent">
               <h1>Weather Buttons</h1>
@@ -28,7 +28,7 @@
           </div> <!-- ends .leftImage -->
           <div id="sushiButtons" class="leftImage">
             <div class="picContent frame">
-              <img src="img/illu/sushiButtons.jpg" title="Sushi Buttons" alt="Set of Sushi Icons for Pin-back Buttons" class="first">
+              <img src="../img/illu/sushiButtons.jpg" title="Sushi Buttons" alt="Set of Sushi Icons for Pin-back Buttons" class="first">
             </div> <!-- ends .picContent -->
             <div class="leftTextContent">
               <h1>Sushi Buttons</h1>
@@ -37,7 +37,7 @@
           </div> <!-- ends .leftImage -->
           <div id="kikouteiNoRyo" class="leftImage">
             <div class="picContent frame">
-              <img src="img/illu/kikouteiNoRyo.jpg" title="Kikoutei no Ryo" alt="Fanart of a Ryo of Inferno from Ronin Warriors" class="first">
+              <img src="../img/illu/kikouteiNoRyo.jpg" title="Kikoutei no Ryo" alt="Fanart of a Ryo of Inferno from Ronin Warriors" class="first">
             </div> <!-- ends .picContent -->
             <div class="leftTextContent">
               <h1>Kikoutei no Ryo</h1>
@@ -46,7 +46,7 @@
           </div> <!-- ends .leftImage -->
           <div id="confusedCloud" class="leftImage">
             <div class="picContent frame">
-              <img src="img/illu/cloud.jpg" title="Confused Cloud" alt="Fanart of a Confused Cloud Strife from Final Fantasy 7" class="first">
+              <img src="../img/illu/cloud.jpg" title="Confused Cloud" alt="Fanart of a Confused Cloud Strife from Final Fantasy 7" class="first">
             </div> <!-- ends .picContent -->
             <div class="leftTextContent">
               <h1>Confused Cloud</h1>
@@ -56,7 +56,7 @@
 
           <div id="chaosIllustration" class="leftImage">
             <div class="picContent frame">
-              <img src="img/illu/chaos.jpg" title="Chaos Illustration" alt="Chaos Illustration" class="first">
+              <img src="../img/illu/chaos.jpg" title="Chaos Illustration" alt="Chaos Illustration" class="first">
             </div> <!-- ends .picContent -->
             <div class="leftTextContent">
               <h1>Chaos</h1>
@@ -65,7 +65,7 @@
           </div> <!-- ends .leftImage -->
           <div id="dragonCommission" class="leftImage">
             <div class="picContent frame">
-              <img src="img/illu/dragon.jpg" title="Dragon Commission" alt="Dragon Commission" class="first">
+              <img src="../img/illu/dragon.jpg" title="Dragon Commission" alt="Dragon Commission" class="first">
             </div> <!-- ends .picContent -->
             <div class="leftTextContent">
               <h1>Dragon Commission</h1>
@@ -74,7 +74,7 @@
           </div> <!-- ends .leftImage -->
           <div id="inevitablePoster" class="leftImage">
             <div class="picContent frame">
-              <img src="img/illu/inevitablePoster.jpg" title="Inevitable Poster" alt="Inevitable Poster" class="first">
+              <img src="../img/illu/inevitablePoster.jpg" title="Inevitable Poster" alt="Inevitable Poster" class="first">
             </div> <!-- ends .picContent -->
             <div class="leftTextContent">
               <h1>Inevitable Poster</h1>
@@ -83,7 +83,7 @@
           </div> <!-- ends .leftImage -->
           <div id="inevitablePostcard" class="leftImage">
             <div class="picContent frame">
-              <img src="img/illu/inevitablePostcard.jpg" title="Inevitable Postcard" alt="Inevitable Postcard" class="first">
+              <img src="../img/illu/inevitablePostcard.jpg" title="Inevitable Postcard" alt="Inevitable Postcard" class="first">
             </div> <!-- ends .picContent -->
             <div class="leftTextContent">
               <h1>Promotional Postcard</h1>
@@ -106,4 +106,4 @@
           <div class="rightThumb"></div>
         </div> <!-- ends #thumbContainer -->
         <!-- footer -->
-        <?php require "inc/footer.php"; ?>
+        <?php require "../inc/footer.php"; ?>

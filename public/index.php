@@ -69,10 +69,10 @@
               </div>
             </article>
           </a>
-          
+
           <!-- homepage-specific footer -->
           <footer class="homeFoot whiteFoot">
-            <?php require "footerSocialLinks.php"; ?>
+            <?php require "inc/footerSocialLinks.php"; ?>
             <!-- excludes footerReturnTopBtn.php -->
             </div>
             <p>&copy;2018 Emily Wing</p>
@@ -81,4 +81,4 @@
       </div> <!-- ends #rightNav .flexSection -->
     </div> <!-- ends #pageWrapHome -->
 
-    <?php require "htmlEndScripts.php"; ?>
+    <?php require "inc/htmlEndScripts.php"; ?>
