@@ -45,7 +45,7 @@
       <div id="rightNav" class="flexSection40">
         <div id="navContainer" class="navContainer">
           <label for="btnNavClose"><i id="btnNavClose" class="fa fa-times fa-3x"></i></label>
-          <!-- <a href="/webdesign" class="rightNavLink">
+          <a href="/webdesign" class="rightNavLink">
             <article id="webDesign" class="rightNavProject">
               <img src="img/navWebDesignIcon.svg" alt="Web Design Nav Icon" id="webDevIcon" class="rightNavSVG">
               <div class="rightNavText">
@@ -60,7 +60,7 @@
                 <h3>Graphic Design &amp; Marketing</h3>
               </div>
             </article>
-          </a> -->
+          </a>
           <a href="/comics" class="rightNavLink">
             <article id="comics" class="rightNavProject">
               <img src="img/navComicsIcon.svg" alt="Comics Nav Icon" id="comicsIcon" class="rightNavSVG">
