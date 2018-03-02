@@ -35,6 +35,6 @@
           <div class="rightThumb"></div>
           <div class="rightThumb"></div>
           <div class="rightThumb"></div>
-        </div> <!-- ends #thumbContainer -->
+        </div>
         <!-- footer -->
         <?php require "../inc/footer.php"; ?>

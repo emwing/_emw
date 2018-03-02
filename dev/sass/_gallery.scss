@@ -22,17 +22,6 @@
   -webkit-transition: all 360ms ease-out; /* for when images needs to change opacity */
   -moz-transition: all 360ms ease-out;
   transition: all 360ms ease-out;
-}
-
-
-// #theFoldsOfFlowersComic,
-// #weatherButtons {
-//   padding-top: 3rem;
-//   @include tablet { padding-top: 0rem; }
-// }
-
-// hero div controls
-.leftHero {
   display: flex; /* set as flex container to position flex items near bottom for mobile */
   flex-direction: column;
   align-items: stretch;
@@ -41,10 +30,10 @@
   height: 100vh;
   @include tablet { justify-content: center; }
 }
-#picContent { /* connected to javascript container for page icon */
+#picContent /* connected to javascript (container for page icon) */ {
   margin: 0 auto;
   width: 85%;
-  height: 17rem; /* mobile uses js to recalculate height to 50% of screen height; this number functions as a placeholder */
+  height: 17rem; /* mobile uses js to recalculate #picContent height to 50% of screen height; this number functions as a placeholder */
   overflow: visible;
   position: relative;
   @include tablet {
@@ -61,7 +50,8 @@
   max-width: 100%;
 }
 .leftHero,
-.illustration{
+.illustration,
+.book {
   @include tablet {
     position: absolute; /* relative to .artContainer */
     top: 50%;
@@ -72,7 +62,8 @@
 }
 
 // illustration gallery controls
-.illustration { // div containing img and text
+.illustration,
+.book { // div containing img and text
   padding: 1rem 1rem 2rem;
   background-color: $white;
   text-align: center;
@@ -82,13 +73,12 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.35);
   }
 }
-.illustration img { max-height: 80%; }
 .illustration img,
-.frame,
+.pageContainer img,
 .rightThumb {
   border: 0.125rem solid $silver;
   border-radius: 0.125rem;
@@ -96,21 +86,41 @@
 
 
 // stacked image gallery controls (ex. comics)
-.frame img { cursor: pointer; } /* container for "stacked" images (comics, etc) */
+.pageContainer {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  @include tablet {
+    position: static;
+    margin: 0 auto;
+    flex: 3 3 3;
+    height: auto;
+  }
+}
+.illustration img,
+.pageContainer img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.pageContainer img {
+  cursor: pointer;
+  // @include tablet {
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 50%;
+  //   // transform: translateX(-50%);
+  // }
+}
+
 .hiddenPage { /* settings for "default" hidden "stacked" images (comics, etc) */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   visibility: hidden;
   opacity: 0;
   z-index: -100;
-}
-img.first { /* settings for "default" hidden "stacked" images's first page (comics, etc) */
-  visibility: visible;
-  opacity: 1;
-  z-index: 100;
-  @include tablet {
-    visibility: inherit;
-    opacity: inherit;
-    z-index: inherit;
-  }
 }
 
 
@@ -129,7 +139,11 @@ img.first { /* settings for "default" hidden "stacked" images's first page (comi
 .leftTextContent { /* art text */
   padding: 1rem 0 0;
   max-width: 32rem;
-  @include tablet { padding: 1.5rem; }
+  @include tablet {
+    flex: 2 2 1;
+    align-self: center;
+    padding: 1.5rem;
+  }
 }
 .leftTextContent h2 { margin-bottom: 0.25rem; }
 

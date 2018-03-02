@@ -56,7 +56,7 @@ $(document).ready(function() {
     function turnPage(event) {
       var $target = $(event.target);
       // make sure it was the page that was clicked, then change to the next page
-      if ((event.target !== event.currentTarget) && ($target.is(".frame img"))) {
+      if ((event.target !== event.currentTarget) && ($target.is(".pageContainer img"))) {
         $target.removeClass('showSection');
         $target.addClass('hiddenPage');
         $target.next().removeClass('hiddenPage');
