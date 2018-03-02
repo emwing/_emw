@@ -8,13 +8,14 @@
       <div id="leftHeroSection" class="flexSection60">
         <div id="artContainerLayered" class="artContainer">
           <!-- full images -->
-          <div class="leftImage leftHero">
+          <div id="test" class="leftImage leftHero">
             <div id="picContent" class="picContent">
               <img src="img/iconComics.svg" title="Mini-Comics" alt="Mini-Comics Icon">
             </div> <!-- ends .picContent -->
             <div class="introContent">
               <h1>Mini-Comics</h1>
               <h3>Traditionally and Digitally created Mini-Comics.</h3>
+              <p>(click on the covers to see the next pages)</p>
             </div> <!-- ends .introContent -->
           </div> <!-- ends .leftImage .leftHero -->
 

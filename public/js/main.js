@@ -12,6 +12,7 @@ $(document).ready(function() {
         $('html body #heroImg').css('height', theminheight);
         $('#picContent').css('height', theminheight*0.5);
         $('#pageWrap').css( { 'background-size': 'auto ' + theminheight + 'px' } );
+        $('html body #test').css('height', theminheight);
       }
     }
     window.addEventListener('resize orientationchange', function() {
@@ -40,5 +41,5 @@ $(document).ready(function() {
     return false;
   });
 
-  
+
 });  // ends document ready

@@ -8,7 +8,7 @@
       <div id="leftHeroSection" class="flexSection60">
         <div id="artContainer" class="artContainer">
           <!-- full images -->
-          <div class="leftImage leftHero">
+          <div id="test" class="leftImage leftHero">
             <div id="picContent" class="picContent">
               <img src="img/iconIllustrations.svg" title="Illustrations &amp; Icons" alt="Illustrations Icon">
             </div> <!-- ends .picContent -->
@@ -17,6 +17,7 @@
               <h3>Traditional and Digital artwork.</h3>
             </div> <!-- ends .introContent -->
           </div> <!-- ends .leftImage .leftHero -->
+
           <div id="weatherButtons" class="leftImage illustration">
             <img src="img/weatherButtons.jpg" title="Weather Buttons" alt="Set of Weather Icons for Pin-back Buttons" class="first">
             <div class="leftTextContent">
@@ -73,7 +74,7 @@
               <p>Traditional pen and ink drawing. This postcard was created to promote its corresponding comic&nbsp;story.</p>
             </div> <!-- ends .textContent -->
           </div> <!-- ends .leftImage -->
-          
+
         </div> <!-- ends #artContainer .artContainer -->
       </div> <!-- ends #leftHeroSection .flexSection -->
 

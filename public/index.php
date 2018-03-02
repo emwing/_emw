@@ -36,7 +36,7 @@
             <h1>Hi! My name is Emily Wing.</h1>
             <p>I'm a Storyteller, Artist, and Designer with a passion for sequential art and problem-solving.</p>
             <button type="button" id="btnAbout" class="btnControl"><a href="/about">About Me</a></button>
-            <button type="button" id="btnNavOpen" class="btnControl">Menu</button>
+            <button type="button" id="btnNavOpen" class="btnControl"><a href="#">Menu</a></button>
           </div> <!-- ends .textContent -->
         </div>  <!-- ends .heroContainer -->
       </div> <!-- ends #leftHeroSection .flexSection -->

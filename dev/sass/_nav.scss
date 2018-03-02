@@ -59,6 +59,19 @@
   text-transform: lowercase;
 }
 
+#btnAbout,
+#btnNavOpen {
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+#btnAbout a,
+#btnNavOpen a {
+    display: inline-block;
+    padding: 0.625rem 0.875rem;
+    width: 100%;
+    height: 100%;
+}
+
 
 // non-homepage navigation controls
 #navList {
