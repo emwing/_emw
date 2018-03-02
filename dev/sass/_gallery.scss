@@ -1,0 +1,195 @@
+// leftHeroSection controls (flexItem)
+#leftHeroSection {
+  @include tablet {
+    background: $teal url("../img/herobg.jpg") repeat-x fixed; /* fallback */
+    background-image: url("../img/asanoha-pattern-opt.svg"), linear-gradient($beige, $teal); /* for general */
+    background-attachment: fixed;
+  }
+}
+// set left and section's child divs to flex and fill left side of screen
+.artContainer { /* left section div only, uses js to calculate height */
+  position: relative;
+  @include tablet {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+  }
+}
+
+.leftImage { /* connected to javascript for desktop controls */
+  -webkit-transition: all 360ms ease-out; /* for when images needs to change opacity */
+  -moz-transition: all 360ms ease-out;
+  transition: all 360ms ease-out;
+}
+
+
+// #theFoldsOfFlowersComic,
+// #weatherButtons {
+//   padding-top: 3rem;
+//   @include tablet { padding-top: 0rem; }
+// }
+
+// hero div controls
+.leftHero {
+  display: flex; /* set as flex container to position flex items near bottom for mobile */
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100vh;
+  @include tablet { justify-content: center; }
+}
+#picContent { /* connected to javascript container for page icon */
+  margin: 0 auto;
+  width: 85%;
+  height: 17rem; /* mobile uses js to recalculate height to 50% of screen height; this number functions as a placeholder */
+  overflow: visible;
+  position: relative;
+  @include tablet {
+    margin: 0 auto;
+    height: 60vh;
+  }
+}
+#picContent img { /* page icon */
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 100%; /* pay attention to this!! */
+  max-width: 100%;
+}
+.leftHero,
+.illustration{
+  @include tablet {
+    position: absolute; /* relative to .artContainer */
+    top: 50%;
+    transform: translateY(-50%);
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+// illustration gallery controls
+.illustration { // div containing img and text
+  padding: 1rem 1rem 2rem;
+  background-color: $white;
+  text-align: center;
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+}
+.illustration img { max-height: 80%; }
+.illustration img,
+.frame,
+.rightThumb {
+  border: 0.125rem solid $silver;
+  border-radius: 0.125rem;
+}
+
+
+// stacked image gallery controls (ex. comics)
+.frame img { cursor: pointer; } /* container for "stacked" images (comics, etc) */
+.hiddenPage { /* settings for "default" hidden "stacked" images (comics, etc) */
+  visibility: hidden;
+  opacity: 0;
+  z-index: -100;
+}
+img.first { /* settings for "default" hidden "stacked" images's first page (comics, etc) */
+  visibility: visible;
+  opacity: 1;
+  z-index: 100;
+  @include tablet {
+    visibility: inherit;
+    opacity: inherit;
+    z-index: inherit;
+  }
+}
+
+
+// left side text controls
+.introContent { /* hero image text */
+  margin-bottom: 10%;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: $white;
+  text-align: center;
+  @include tablet {
+    margin-bottom: 5%;
+    padding: 1.5rem 3rem;
+  }
+}
+.leftTextContent { /* art text */
+  padding: 1rem 0 0;
+  max-width: 32rem;
+  @include tablet { padding: 1.5rem; }
+}
+.leftTextContent h2 { margin-bottom: 0.25rem; }
+
+.showSection { /* js applies class as sideNav buttons clicked */
+  visibility: visible;
+  opacity: 1.0;
+  z-index: 100;
+}
+
+
+// for when the right side contains img thumbnails, rightThumbSection controls
+#rightThumbSection {
+  position: relative; /* footer absolute to this container */
+  @include tablet { height: 100vh; }
+}
+#thumbContainer { /* divs absolute to this container (mimic #infoContainer) */
+  display: none; /* for mobile devices, all images will be full size, no thumbnails needed */
+  @include tablet {
+    padding: 4.5rem 1.5rem 6rem;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-left: 0.25rem solid $beige;
+  }
+  @include desktop { max-width: 50rem; }
+}
+.rightThumb {
+  display: none; /* for mobile devices, all images will be full size, no thumbnails needed */
+  background: none;
+  @include tablet {
+    display: block;
+    margin: 0.5rem 0;
+    width: 75%;
+    height: 4rem;
+    // flex: 1;
+    background-color: $silver;
+    background-repeat: no-repeat;
+  	background-position: center 30%;
+  	background-size: 100%;
+    opacity: 0.5;
+    -webkit-filter: grayscale(100%);
+    filter: gray;
+    cursor: pointer;
+  }
+  // @include desktop {
+  //   height: 8rem;
+  //   flex: 0 1 8rem;
+  // }
+  // @include full {
+  //   height: 10rem;
+  //   flex: 0 1 10rem;
+  // }
+}
+.rightThumb:hover {
+  opacity: 0.9;
+  -webkit-filter: grayscale(0);
+  filter: none;
+}

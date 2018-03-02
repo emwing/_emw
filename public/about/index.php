@@ -8,9 +8,9 @@
       <div id="leftHeroSection" class="flexSection60">
         <div id="heroContainer" class="heroContainer">
           <div id="picContent" class="picContent">
-            <img src="../img/site/suki.jpg" title="My Furry Assistant, Suki" alt="Suki the Shiba Inu" id="picProfile">
+            <img src="img/suki.jpg" title="My Furry Assistant, Suki" alt="Suki the Shiba Inu" id="picProfile">
           </div> <!-- ends .picContent -->
-          <div class="leftTextContent aboutCenterP">
+          <div class="introContent">
             <h1>Emily Wing</h1>
             <p>(Just kidding! This is a picture of my dog, Suki.)</p>
             <h3>Nice to meet you!</h3>

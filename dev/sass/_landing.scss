@@ -5,8 +5,8 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background: $teal url("../img/site/herobg.jpg") repeat-x; /* fallback */
-  background-image: url("../img/site/asanoha-pattern-opt.svg"), linear-gradient($beige, $teal); /* for general */
+  background: $teal url("../img/herobg.jpg") repeat-x; /* fallback */
+  background-image: url("../img/asanoha-pattern-opt.svg"), linear-gradient($beige, $teal); /* for general */
   background-attachment: fixed;
   @include tablet {
     background: none;
@@ -36,16 +36,7 @@
   @include tablet { margin: 12.5% auto 5%; }
   @include desktop { max-height: 45vh; }
 }
-.introContent {
-  margin-bottom: 10%;
-  padding: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: $white;
-  @include tablet {
-    margin-bottom: 5%;
-    padding: 1.5rem 3rem;
-  }
-}
+// text block controlled in _general.scss
 
 
 // right side of screen
@@ -81,14 +72,13 @@
     justify-content: space-around;
 }
 .rightNavSVG,
-.rightNavProject svg {
+.rightNavProject img {
   display: none;
   @include tablet {
     flex: 1; /* flex item */
     display: block;
     object-fit: contain;
     align-self: baseline;
-    fill: $teal;
     max-width: 3.5rem;
   }
 }
