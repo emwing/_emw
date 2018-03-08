@@ -34,7 +34,7 @@
   opacity: 0.8;
   @include phablet { max-width: 75%; }
   @include tablet { margin: 12.5% auto 5%; }
-  @include desktop { max-height: 45vh; }
+  @include laptop { max-height: 45vh; }
 }
 // text block controlled in _general.scss
 
@@ -90,5 +90,5 @@
   @include tablet { padding-top: 0; }
 }
 
-// footer desktop overrides mobile .whiteFoot
+// footer laptop overrides mobile .whiteFoot
 .homeFoot { @include tablet { color: $black; } }

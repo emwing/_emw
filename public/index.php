@@ -83,7 +83,7 @@
             <?php require "inc/footerSocialLinks.php"; ?>
             <!-- excludes footerReturnTopBtn.php -->
             </div>
-            <p>&copy;2018 Emily Wing</p>
+            <?php require "inc/footerCopyright.php"; ?>
           </footer>
         </div> <!-- ends #navContainer -->
       </div> <!-- ends #rightNav .flexSection -->

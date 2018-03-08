@@ -1,4 +1,7 @@
-<?php require "../inc/htmlStartHead.php"; ?>
+<?php
+  require "../inc/htmlStartHead.php";
+  require "comicsArrayList.php";
+?>
 
     <div id="pageWrap" class="flexContainer">
       <!-- main navigation -->
@@ -20,7 +23,7 @@
           </div> <!-- ends .leftImage .leftHero -->
 
           <?php
-            include "mobileList.php";
+            include "comicsImages.php";
           ?>
 
 

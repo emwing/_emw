@@ -4,7 +4,7 @@
       include "footerReturnTopBtn.php";
     ?>
     </div> <!-- ends .socialLinks -->
-    <p>&copy;2018 Emily Wing</p>
+    <?php require "footerCopyright.php"; ?>
   </footer>
 
   </div> <!-- ends #rightInfoSection .flexSection -->

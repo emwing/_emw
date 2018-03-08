@@ -43,19 +43,19 @@ h1 {
   font-size: 1.25rem;
   @include phablet { font-size: 1.5rem; }
   @include tablet { font-size: 1.75rem; }
-  @include desktop { font-size: 2rem; }
+  @include laptop { font-size: 2rem; }
 }
 h2 {
   font-size: 1.125rem;
   @include phablet { font-size: 1.25rem; }
   @include tablet { font-size: 1.5rem; }
-  @include desktop { font-size: 1.75rem; }
+  @include laptop { font-size: 1.75rem; }
 }
 h3 {
   font-size: 1.0625rem;
   @include phablet { font-size: 1.125rem; }
   @include tablet { font-size: 1.25rem; }
-  @include desktop { font-size: 1.5rem; }
+  @include laptop { font-size: 1.5rem; }
 }
 
 h1,
@@ -74,7 +74,7 @@ ol,
 ul {
   margin: 0 1rem;
   font-size: 0.875rem;
-  @include desktop { font-size: 1rem; }
+  @include laptop { font-size: 1rem; }
 }
 
 a {
@@ -99,7 +99,7 @@ a {
     height: 100vh;
     border-left: 0.25rem solid $beige;
   }
-  @include desktop { max-width: 50rem; }
+  @include laptop { max-width: 50rem; }
 }
 .rightInfo {
   padding: 1rem;

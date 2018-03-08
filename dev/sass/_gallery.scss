@@ -9,7 +9,7 @@
 // set left and section's child divs to flex and fill left side of screen
 .artContainer { /* left section div only, uses js to calculate height */
   position: relative;
-  @include tablet {
+  @include tablet { // needed for the page logo layout
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -53,12 +53,7 @@
   max-width: 100%;
 }
 
-.illustration {
-  position: relative; // for mobile (matching pageContainer so images align properly)
-  width: 100%;
-}
 .leftHero,
-.illustration,
 .book {
   @include tablet {
     position: absolute; /* relative to .artContainer for split design */
@@ -69,10 +64,9 @@
   }
 }
 
-// illustration gallery controls
-.illustration,
+// image gallery controls
 .book { // div containing img and text
-  padding: 1rem 1rem 2rem;
+  padding: 1rem 0 2rem;
   background-color: $white;
   text-align: center;
   @include tablet {
@@ -81,45 +75,47 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 75%;
+    height: 100%;
     background-color: transparent;
+    // background-color: rgba(255, 255, 255, 0.5);
   }
 }
-.illustration img,
+
 .pageContainer img,
 .rightThumb {
   border: 0.125rem solid $silver;
   border-radius: 0.125rem;
 }
 
-
-// stacked image gallery controls (ex. comics)
 .pageContainer {
   margin: 0 auto;
   position: relative;
   width: 100%;
   overflow: visible;
   @include tablet {
-    position: static;
-    margin: 0 auto;
-    flex: 3 3 3;
-    height: auto;
+    // padding: 1rem;
+    // position: relative;
+    // margin: 0 auto;
+    // display: flex;
+    flex: 3 3 auto;
+    height: 100%;
+    overflow: hidden;
   }
 }
-.illustration img,
 .pageContainer img {
   margin: 0 auto; // prevents image warp on mobile
   max-height: 100%;
   max-width: 100%;
-}
-.pageContainer img {
   cursor: pointer;
-  // @include tablet {
-  //   position: absolute;
-  //   bottom: 0;
-  //   left: 50%;
-  //   // transform: translateX(-50%);
-  // }
+  @include tablet {
+    // align-self: flex-end;
+    max-width: calc(100% - 2rem);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @include desktop { max-width: 100%; }
 }
 
 .hiddenPage { /* settings for "default" hidden "stacked" images (comics, etc) */
@@ -146,16 +142,27 @@
   }
 }
 .leftTextContent { /* art text */
-  margin: 0 auto;
+  margin: 1rem auto 0;
   padding: 1rem 0 0;
   max-width: 32rem;
   @include tablet {
-    flex: 2 2 1;
+    margin: 1rem auto 5%;
+    padding: 1rem 1rem 2rem;
+    max-width: 100%;
+    width: 100%;
+    flex: 1 1 auto;
     align-self: center;
-    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: $white;
   }
 }
 .leftTextContent h2 { margin-bottom: 0.25rem; }
+.leftTextContent p {
+  @include tablet {
+    margin: 0 auto;
+    max-width: 32rem;
+  }
+}
 
 .showSection { /* js applies class as sideNav buttons clicked */
   visibility: visible;
@@ -183,7 +190,7 @@
     align-items: center;
     border-left: 0.25rem solid $beige;
   }
-  @include desktop { max-width: 50rem; }
+  @include laptop { max-width: 50rem; }
 }
 .rightThumb {
   display: none; /* for mobile devices, all images will be full size, no thumbnails needed */
