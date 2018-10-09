@@ -10,10 +10,10 @@ $(document).ready(function() {
     var $bgInfo = $("#backgroundInfo");
 
     function updateItems(delta) {
-      var $foot = $("footer");
-      var $info = $('#infoContainer').children(); /* get all the articles */
+      var $foot = $("#footerContainer");
+      var $info = $ris.children(); /* get all the articles */
       var $show = $info.filter('.showSection'); /* count number of articles with .showSection */
-      $show = $show.length ? $show : $info.first(); /* if a number of articles.showSection exists, then leave alone, otherwise give the first article .showSection */
+      $show = $show.length ? $show : $info.eq(1); /* if a number of articles.showSection exists, then leave alone, otherwise give the second child .showSection */
       var index = $show.index() + delta;
       // Range check the new index
       index = (index < 0) ? 0 : ((index > $info.length) ? $info.length : index); /* if index is <0, set to 0; if index is > the number of articles, set to the number of articles, otherwise leave alone */
@@ -31,12 +31,12 @@ $(document).ready(function() {
       if ($info.hasClass("rightSkill") && $info.hasClass("showSection")) {
         $ris.addClass("silverBg");
         $ris.removeClass("whiteBg");
-        $foot.addClass("whiteFoot");
+        $foot.css({ color: "#fff", backgroundColor: "#2D313A" });
       }
       if ($bgInfo.hasClass("showSection")) {
         $ris.addClass("whiteBg");
         $ris.removeClass("silverBg");
-        $foot.removeClass("whiteFoot");
+        $foot.css({ color: "", backgroundColor: "" });
       }
     } /* end definition of updateItems function */
 

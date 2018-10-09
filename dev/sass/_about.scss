@@ -1,15 +1,47 @@
 // profile pic controls
-#picProfile {
+#logo.suki {
   border: 0.125rem solid $teal;
   border-radius: 0.25rem;
   opacity: 0.8;
+  max-width: 80%;
+  @include phablet { max-width: 70%; }
+  @include laptop { max-width: 60%; }
+  @include full { max-width: 50%; }
+}
+
+// rightInfoSection
+#rightInfoSection {
+  padding: 1em 0 0;
+  -webkit-transition: all 360ms ease-out; /* for when images needs to change opacity */
+  -moz-transition: all 360ms ease-out;
+  transition: all 360ms ease-out;
+}
+#backgroundInfo {
+  padding: 1em;
+  @include tablet { padding: 1em 2.5em 1em 1em; }
+}
+#backgroundInfo h3 { text-align: center; }
+
+.rightInfo {
+  -webkit-transition: all 360ms ease-out; /* for when images needs to change opacity */
+  -moz-transition: all 360ms ease-out;
+  transition: all 360ms ease-out;
+  @include tablet { /* each article starts as visually hidden */
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
 // skill chart controls
 .rightSkill { /* the parent article */
+  width: 100%;
   color: $white;
-  padding: 2rem 1rem 0;
-  @include tablet { padding: 2rem 3rem 1rem 2rem; }
+  padding: 2em 1em 0;
+  @include tablet { padding: 2em 3em 1em 1em; }
 }
 .skillBox { /* the div inside the article */
   padding-bottom: 0.875rem;
@@ -18,13 +50,16 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.skillChart h3 { flex: 1 100%; }
+.skillChart h3 {
+  margin-bottom: 0.5em;
+  flex: 1 100%;
+}
 .skillBox p {
   margin-bottom: 0.25rem;
   flex: 1 50%;
+  font-size: 0.875em;
   letter-spacing: 0.125em;
 }
-.skillBox p:first-child { font-weight: bold; }
 .skillBox p:nth-child(2) { text-align: right; }
 
 // skill bar controls

@@ -1,155 +1,182 @@
 // pageWrap flexbox container controls
-#pageWrap {
-  margin: 0 auto;
-  max-width: 125rem;
-  position: relative;
-  overflow-x: hidden;
-  background: $teal url("../img/herobg.jpg") repeat-x fixed; /* fallback */
-  background-image: url("../img/asanoha-pattern-opt.svg"), linear-gradient($beige, $teal); /* for general */
-  background-attachment: fixed;
-  background-size: auto 100vh; /* uses js to recalculate height and avoid shifting */
-  @include tablet {
-    display: flex;
-    align-items: stretch;
-    flex-direction: row;
-    height: 100vh;
-    overflow: hidden;
-    background: $white;
+  #pageWrap {
+    margin: 0 auto;
+    position: relative;
+    overflow-x: hidden;
+    background: $teal url("../img/herobg.jpg") repeat-x fixed; /* fallback */
+    background-image: url("../img/asanoha-pattern-opt.svg"), linear-gradient($beige, $teal); /* for general */
+    background-attachment: fixed;
+    background-size: auto 100vh; /* uses js to recalculate height and avoid shifting */
+    @include tablet { overflow: hidden; }
   }
-}
 // set left and right sections to flex items for non-mobile split screen
-// .flexSection { @include tablet { flex: 1 50%; } }
-  .flexSection60 { @include tablet { flex: 1 60%; } }
-  .flexSection40 { @include tablet { flex: 1 40%; } }
+  .flexContainerRow {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      -webkit-transition: all 360ms ease-out; /* for when images needs to change opacity */
+      -moz-transition: all 360ms ease-out;
+      transition: all 360ms ease-out;
+    }
+  }
+  .flexContainerColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    @include tablet {
+      padding: 0 1em;
+      // align-items: center;
+    }
+  }
+  .flexItem60 { @include tablet { flex: 1 60%; } }
+  .flexItem40 { @include tablet {
+    flex: 1 40%;
+    border-left: 0.25rem solid $beige;
+  } }
+
+  .fullHeight { height: 100vh; }
+
+
+// left section hero image and text controls
+  #heroWrap { @include tablet { height: 100vh; } }
+
+  #heroDiv {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    @include tablet { width: auto; }
+  }
+  #heroImg {
+    margin: 30% auto 0;
+    width: 75%;
+    overflow: hidden;
+    position: relative;
+    @include phablet { margin: 15% auto 0; }
+    @include tablet {
+      max-width: 85%;
+      margin: 5% auto 0;
+      overflow: visible;
+    }
+  }
+  #logo { /* page icon */
+    display: block;
+    margin: 0 auto;
+    // max-height: 100%; /* flexbox handles this */
+    max-width: 100%;
+    @include phablet { max-height: 90%; }
+    @include tablet { max-width: 100%; }
+    @include laptop { max-width: 80%; }
+    @include desktop { max-width: 75%; }
+    @include full { max-width: 25rem; }
+  }
+  #heroTitle  { /* hero image text */
+    margin: 5% 0;
+    padding: 1em 0.5em;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: $white;
+    text-align: center;
+    @include phablet { padding: 1em; }
+    @include tablet { padding: 1em 3em; }
+  }
+  #heroTitle h1 { margin-bottom: 0.25em; }
+  #heroTitle h3 { margin-top: 0.25em; }
+
+// footer controls
+  footer {
+    font-size: 0.75em;
+    text-align: center;
+    width: 100%;
+    @include tablet {
+      align-self: flex-end;
+      padding: 0;
+    }
+  }
+  #footerContainer {
+    padding: 1em 0 0;
+    background-color: $white;
+    color: $black;
+  }
+  .whiteFoot { // on about when bg changes for skills sections
+    background-color: transparent;
+    color: $white;
+  }
+  .socialLinks { /* flex container to evenly space icons */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  #btnTop, /* flex items */
+  .socialLinks a i {
+    padding: 1rem;
+    flex: 1;
+  }
+  .socialLinks a { border-radius: 0.25em; }
 
 
 // general text controls
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 { font-family: $header-font; }
-
-h1,
-h2,
-h3 { margin: 0 0 0.75rem 0; }
-
-h4,
-h5,
-h6 { margin-bottom: 0.25rem; }
-
-h1 {
-  font-size: 1.25rem;
-  @include phablet { font-size: 1.5rem; }
-  @include tablet { font-size: 1.75rem; }
-  @include laptop { font-size: 2rem; }
-}
-h2 {
-  font-size: 1.125rem;
-  @include phablet { font-size: 1.25rem; }
-  @include tablet { font-size: 1.5rem; }
-  @include laptop { font-size: 1.75rem; }
-}
-h3 {
-  font-size: 1.0625rem;
-  @include phablet { font-size: 1.125rem; }
-  @include tablet { font-size: 1.25rem; }
-  @include laptop { font-size: 1.5rem; }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p { letter-spacing: 0.0625rem; }
-
-ol,
-ul,
-p { font-family: $copy-font; }
-
-ol,
-ul {
-  margin: 0 1rem;
-  font-size: 0.875rem;
-  @include laptop { font-size: 1rem; }
-}
-
-a {
-  color: $teal;
-  text-decoration: none;
-}
-
-
-// rightInfoSection controls
-#rightInfoSection {
-  -webkit-transition: all 360ms ease-in; /* for when #rightInfoSection needs to change bg color */
-  -moz-transition: all 360ms ease-in;
-  transition: all 360ms ease-in;
-  position: relative; /* footer absolute to this container */
-  @include tablet { height: 100vh; }
-}
-
-// for when the rightInfoSection contains text articles
-#infoContainer { /* articles absolute to this container */
-  @include tablet {
-    position: relative;
-    height: 100vh;
-    border-left: 0.25rem solid $beige;
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: $header-font;
+    @include interpolate((padding-top, padding-bottom), 20rem, 60rem, 0rem, 0.5rem);
   }
-  @include laptop { max-width: 50rem; }
-}
-.rightInfo {
-  padding: 1rem;
-  -webkit-transition: all 360ms ease-in; /* for when articles needs to change opacity */
-  -moz-transition: all 360ms ease-in;
-  transition: all 360ms ease-in;
-  @include tablet { /* each article starts as visually hidden */
-    width: 100%;
-    padding: 1rem 4rem 1rem 2rem;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    visibility: hidden;
-    opacity: 0;
-  }
-}
-.rightTextContent p { margin-bottom: 1rem; }
-.rightTextContent p:last-child { margin-bottom: 0.5rem; }
 
-
-// footer controls
-footer {
-  padding: 1rem;
-  background-color: $white;
-  color: $black;
-  text-align: center;
-  -webkit-transition: all 360ms ease-in; /* for when footer needs to change bg color */
-  -moz-transition: all 360ms ease-in;
-  transition: all 360ms ease-in;
-  @include tablet {
-    background-color: transparent;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+  h1 {
+    font-size: 1.25rem;
+  //   @include phablet { font-size: 1.5rem; }
+  //   @include tablet { font-size: 1.75rem; }
+  //   @include laptop { font-size: 2rem; }
+    @include phablet { font-size: 1.296em; }
+    @include tablet { font-size: 1.602em; }
+    @include laptop { font-size: 2.074em; }
   }
-}
-.whiteFoot { // on index mobile, on about when bg changes for skills sections
-  background-color: transparent;
-  color: $white;
-}
-.socialLinks { /* flex container to evenly space icons */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-#btnTop, /* flex items */
-.socialLinks a i {
-  padding: 1rem;
-  flex: 1;
-}
+  h2 {
+    font-size: 1.1875rem;
+  //   @include phablet { font-size: 1.25rem; }
+  //   @include tablet { font-size: 1.5rem; }
+  //   @include laptop { font-size: 1.75rem; }
+    @include phablet { font-size: 1.215em; }
+    @include tablet { font-size: 1.424em; }
+    @include laptop { font-size: 1.728em; }
+  }
+  h3 {
+    font-size: 1.125rem;
+  //   @include phablet { font-size: 1.125rem; }
+  //   @include tablet { font-size: 1.25rem; }
+  //   @include laptop { font-size: 1.5rem; }
+    @include phablet { font-size: 1.138em; }
+    @include tablet { font-size: 1.266em; }
+    @include laptop { font-size: 1.44em; }
+  }
+  h4 {
+    font-size: 1.0625rem;
+    @include phablet { font-size: 1.067em; }
+    @include tablet { font-size: 1.125em; }
+    @include laptop { font-size: 1.2em; } // minor third
+  }
+
+  h1, h2, h3, h4, h5, h6, p, li { letter-spacing: 0.0625rem; }
+
+  ol, ul, p { font-family: $copy-font; }
+
+  ol, ul {
+    margin: 0 1rem;
+    font-size: 0.875rem;
+    @include laptop { font-size: 1rem; }
+  }
+
+  p {
+    margin: 0 auto 1em;
+    max-width: 35rem;
+  }
+
+  a {
+    color: $teal;
+    text-decoration: none;
+  }

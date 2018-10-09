@@ -12,9 +12,10 @@
 
 html {
     color: $black;
-    font-size: 16px;
-    line-height: 1.375;
-    @include tablet { line-height: 1.5; }
+    // font-size: 16px;
+    // line-height: 1.375;
+    @include interpolate(font-size, 320px, 1366px, 16px, 20px);
+    // @include tablet { line-height: 1.5; }
 }
 
 /*

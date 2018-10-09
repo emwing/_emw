@@ -12,7 +12,8 @@ $copy-font:   'Average', Garamond, serif;
 
 // media sizes
 $phablet-width: "screen and (min-width: 400px)";
-$tablet-width:  "screen and (min-width: 769px)";
-$laptop-width: "screen and (min-width: 1024px)";
-$desktop-width: "screen and (min-width: 1280px)";
+$mtablet-width: "screen and (min-width: 566px)";
+$tablet-width:  "screen and (min-width: 769px) and (min-height: 629px)";
+$laptop-width: "screen and (min-width: 1025px) and (min-height: 769px)";
+$desktop-width: "screen and (min-width: 1280px) and (min-height: 800px)";
 $full-width:    "screen and (min-width: 1440px)";

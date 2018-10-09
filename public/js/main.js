@@ -8,11 +8,11 @@ $(document).ready(function() {
         // calculate the screen height
         var theminheight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
         // now apply height
-        $('html body #heroContainer').css('height', theminheight);
-        $('html body #heroImg').css('height', theminheight);
-        $('#picContent').css('height', theminheight*0.5);
+        $('html body #heroDiv').css('height', theminheight);
+        // $('html body #heroImg').css('height', theminheight);
+        // $('#heroImg').css('height', theminheight*0.5);
         $('#pageWrap').css( { 'background-size': 'auto ' + theminheight + 'px' } );
-        $('html body #test').css('height', theminheight);
+        $('#heroDiv').css('height', theminheight);
       }
     }
     window.addEventListener('resize orientationchange', function() {
