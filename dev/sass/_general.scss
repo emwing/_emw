@@ -124,26 +124,35 @@
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-family: $header-font;
+    font-weight: normal;
     @include interpolate((padding-top, padding-bottom), 20rem, 60rem, 0rem, 0.5rem);
   }
 
   h1 {
-    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    line-height: 1em;
+    text-shadow: 0 3px 10px rgba(2, 11, 22, 0.5);
+    font-size: 3rem;
   //   @include phablet { font-size: 1.5rem; }
   //   @include tablet { font-size: 1.75rem; }
   //   @include laptop { font-size: 2rem; }
-    @include phablet { font-size: 1.296em; }
-    @include tablet { font-size: 1.602em; }
-    @include laptop { font-size: 2.074em; }
+    @include phablet { font-size: 3.5rem; }
+    @include mtablet { font-size: 4em; }
+    @include tablet { font-size: 5em; }
+    @include laptop { font-size: 5.5em; }
+    // @include desktop { font-size: 6rem; }
   }
   h2 {
-    font-size: 1.1875rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.875rem;
+    line-height: 1;
   //   @include phablet { font-size: 1.25rem; }
   //   @include tablet { font-size: 1.5rem; }
   //   @include laptop { font-size: 1.75rem; }
-    @include phablet { font-size: 1.215em; }
-    @include tablet { font-size: 1.424em; }
-    @include laptop { font-size: 1.728em; }
+    @include phablet { font-size: 2.1875rem; }
+    @include mtablet { font-size: 2.5em; }
+    @include tablet { font-size: 2.875em; }
+    @include laptop { font-size: 3.125em; }
   }
   h3 {
     font-size: 1.125rem;

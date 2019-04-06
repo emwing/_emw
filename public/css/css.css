@@ -8,7 +8,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 html {
-  color: #111111; }
+  color: #ffffff; }
   html {
     font-size: 16px; }
     @media screen and (min-width: 320px) {
@@ -210,10 +210,15 @@ textarea {
     page-break-after: avoid; } }
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  z-index: 999999; }
 
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#072142), color-stop(#061c37), color-stop(#07182b), color-stop(#061220), to(#020b16));
+  background-image: -webkit-linear-gradient(top, #072142, #061c37, #07182b, #061220, #020b16);
+  background-image: -o-linear-gradient(top, #072142, #061c37, #07182b, #061220, #020b16);
+  background-image: linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16); }
 
 *,
 *:before,
@@ -378,7 +383,8 @@ footer {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-family: "Quicksand", Arial, sans-serif; }
+  font-family: "Courgette", "Courier New", cursive;
+  font-weight: normal; }
   h1, h2, h3, h4, h5, h6 {
     padding-top: 0rem;
     padding-bottom: 0rem; }
@@ -392,28 +398,39 @@ h1, h2, h3, h4, h5, h6 {
         padding-bottom: 0.5rem; } }
 
 h1 {
-  font-size: 1.25rem; }
+  margin-bottom: 1rem;
+  line-height: 1em;
+  text-shadow: 0 3px 10px rgba(2, 11, 22, 0.5);
+  font-size: 3rem; }
   @media screen and (min-width: 400px) {
     h1 {
-      font-size: 1.296em; } }
+      font-size: 3.5rem; } }
+  @media screen and (min-width: 566px) {
+    h1 {
+      font-size: 4em; } }
   @media screen and (min-width: 769px) and (min-height: 629px) {
     h1 {
-      font-size: 1.602em; } }
+      font-size: 5em; } }
   @media screen and (min-width: 1025px) and (min-height: 769px) {
     h1 {
-      font-size: 2.074em; } }
+      font-size: 5.5em; } }
 
 h2 {
-  font-size: 1.1875rem; }
+  margin-bottom: 0.5rem;
+  font-size: 1.875rem;
+  line-height: 1; }
   @media screen and (min-width: 400px) {
     h2 {
-      font-size: 1.215em; } }
+      font-size: 2.1875rem; } }
+  @media screen and (min-width: 566px) {
+    h2 {
+      font-size: 2.5em; } }
   @media screen and (min-width: 769px) and (min-height: 629px) {
     h2 {
-      font-size: 1.424em; } }
+      font-size: 2.875em; } }
   @media screen and (min-width: 1025px) and (min-height: 769px) {
     h2 {
-      font-size: 1.728em; } }
+      font-size: 3.125em; } }
 
 h3 {
   font-size: 1.125rem; }
@@ -472,22 +489,9 @@ a {
   right: 1.5rem;
   z-index: 500; }
 
-#btnAbout {
-  padding: 0;
-  margin: 0em 2.25em 0 0; }
-  @media screen and (min-width: 769px) and (min-height: 629px) {
-    #btnAbout {
-      margin: 1em auto; } }
-
-#btnAbout a {
-  display: inline-block;
-  width: 100%;
-  height: 100%; }
-
 #btnNavOpen {
   background-color: rgba(0, 0, 0, 0.6); }
 
-#btnAbout a,
 #btnNavOpen {
   padding: 0.625rem 0.875rem; }
 
@@ -579,7 +583,7 @@ a {
   border-bottom: 1px solid #2D313A;
   color: #03e6fb;
   font-size: 1rem;
-  font-family: "Quicksand", Arial, sans-serif;
+  font-family: "Courgette", "Courier New", cursive;
   font-weight: bold;
   letter-spacing: .2rem; }
 
@@ -649,94 +653,185 @@ a {
       z-index: 500;
       text-align: center; } }
 
-#logoImg {
-  margin: 10% auto 0;
-  width: 70%;
-  overflow: visible;
-  position: relative; }
-  @media screen and (min-width: 400px) {
-    #logoImg {
-      width: 80%; } }
-  @media screen and (min-width: 566px) {
-    #logoImg {
-      width: 65%; } }
-  @media screen and (min-width: 769px) and (min-height: 629px) {
-    #logoImg {
-      margin: 5% auto 0; } }
-  @media screen and (min-width: 1440px) {
-    #logoImg {
-      width: 75%; } }
-
-#rightNav {
-  padding: 0;
-  position: absolute;
-  top: 0;
-  right: -100%;
+#introContainer {
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9); }
-  @media screen and (min-width: 769px) and (min-height: 629px) {
-    #rightNav {
-      position: static;
-      background-color: #ffffff;
-      border-left: 0.25rem solid #ffffe2; } }
+  position: relative;
+  overflow: hidden; }
 
-#navContainer {
-  /* child div of #rightNav section */
+#svgPearlContainer, #introText {
+  position: absolute; }
+
+#svgPearlContainer {
+  width: 100%;
+  top: -20%;
+  left: -50%; }
+  @media screen and (min-width: 400px) {
+    #svgPearlContainer {
+      width: 120%;
+      top: -22.5%;
+      left: -40%; } }
+  @media screen and (min-width: 769px) and (min-height: 629px) {
+    #svgPearlContainer {
+      width: 92.5%;
+      top: -20%;
+      right: -25%; } }
+  @media screen and (min-width: 1280px) and (min-height: 800px) {
+    #svgPearlContainer {
+      width: 93.5%;
+      top: -32.5%;
+      right: -20%; } }
+
+.svgPearlElement {
+  width: 200%; }
+  @media screen and (min-width: 400px) {
+    .svgPearlElement {
+      width: 150%; } }
+  @media screen and (min-width: 566px) {
+    .svgPearlElement {
+      width: 125%; } }
+  @media screen and (min-width: 769px) and (min-height: 629px) {
+    .svgPearlElement {
+      width: 110%; } }
+  @media screen and (min-width: 1025px) and (min-height: 769px) {
+    .svgPearlElement {
+      width: 85%; } }
+  @media screen and (min-width: 1280px) and (min-height: 800px) {
+    .svgPearlElement {
+      width: 92.5%; } }
+
+#introText {
+  top: 80%;
+  left: 13%;
+  transform: translateY(-50%);
+  color: #ffffff; }
+  @media screen and (min-width: 769px) and (min-height: 629px) {
+    #introText {
+      top: 50%; } }
+
+.flex-item {
+  flex: 1 50%; }
+
+.cls-23,
+#glowGroup {
+  fill: white; }
+
+.cls-1 {
+  fill: none; }
+
+.cls-3 {
+  opacity: 0.01; }
+
+.cls-4 {
+  opacity: 0.02; }
+
+.cls-5 {
+  opacity: 0.04; }
+
+.cls-6 {
+  opacity: 0.06; }
+
+.cls-7 {
+  opacity: 0.08; }
+
+.cls-8 {
+  opacity: 0.1; }
+
+.cls-9 {
+  opacity: 0.12; }
+
+.cls-10 {
+  fill: #dbaa2d; }
+
+.cls-11 {
+  fill: #e6b52d; }
+
+.cls-12 {
+  fill: #f2c12d; }
+
+.cls-13 {
+  fill: #ffcd2d; }
+
+.cls-14 {
+  fill: #f5efeb; }
+
+.cls-15 {
+  fill: #ece5e3; }
+
+.cls-16 {
+  fill: #e3ddda; }
+
+.cls-17 {
+  fill: #dfd8d6; }
+
+.cls-18 {
+  fill: #d9d3d0; }
+
+.cls-19 {
+  fill: #d3ccca; }
+
+.cls-20 {
+  fill: #eae6e3; }
+
+.cls-21 {
+  fill: #f7f0eb; }
+
+.cls-22 {
+  fill: #e2dad6; }
+
+.secContainer {
   position: relative;
   height: 100vh;
   display: flex;
-  /* flex container */
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center; }
-
-.rightNavProject {
-  /* the article itself */
-  padding: 0.5rem 3rem;
-  align-self: stretch;
-  flex: 1;
-  /* flex item */
-  display: flex;
-  /* flex container */
-  justify-content: space-around; }
-
-.rightNavSVG,
-.rightNavProject img {
-  display: none; }
+  flex-direction: column; }
   @media screen and (min-width: 769px) and (min-height: 629px) {
-    .rightNavSVG,
-    .rightNavProject img {
-      flex: 1;
-      /* flex item */
-      display: block;
-      object-fit: contain;
-      align-self: baseline;
-      max-width: 3.5rem; } }
+    .secContainer {
+      height: auto;
+      min-height: 100vh;
+      flex-direction: row; } }
 
-.rightNavText {
-  padding-top: 1rem;
-  flex: 2;
-  /* flex item */
-  margin-left: 1rem;
-  align-self: baseline; }
+.projectContainer {
+  padding: 0 0 0 13%;
+  position: relative;
+  flex: 1 33.333333333333333333%;
+  display: flex; }
   @media screen and (min-width: 769px) and (min-height: 629px) {
-    .rightNavText {
-      padding-top: 0; } }
+    .projectContainer {
+      padding: 0 5%;
+      flex-direction: column-reverse;
+      height: 90vh;
+      justify-content: flex-start; } }
 
-.homeFoot {
+.imgContainer {
+  width: 55%;
+  height: 80%;
   position: absolute;
-  bottom: 1em;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  background-color: transparent;
-  text-align: center;
-  color: #ffffff;
-  font-size: 0.75em; }
+  top: 50%;
+  right: 13%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: #2D313A; }
   @media screen and (min-width: 769px) and (min-height: 629px) {
-    .homeFoot {
-      color: #111111; } }
+    .imgContainer {
+      width: 80%;
+      height: 75%;
+      top: 13%;
+      transform: translateY(0);
+      left: 50%;
+      transform: translateX(-50%); } }
+
+.textContainer {
+  width: 100%;
+  align-self: flex-end; }
+
+button {
+  margin: 5% 0;
+  max-width: 20ch;
+  padding: 0.5em 1em;
+  display: inline-block;
+  border: none;
+  border-radius: 1em;
+  background-color: #00a4b3; }
 
 #logo.suki {
   border: 0.125rem solid #00a4b3;

@@ -3,7 +3,7 @@
 
     <link rel="stylesheet" href="css/normalize.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Average|Quicksand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Average|Courgette&amp;subset=latin-ext" rel="stylesheet">
 
     <link rel="stylesheet" href="css/css.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>

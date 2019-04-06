@@ -7,13 +7,23 @@ $white:  #ffffff;
 $beige:  #ffffe2;
 
 // fonts
-$header-font: 'Quicksand', Arial, sans-serif;
+$header-font: 'Courgette', 'Courier New', cursive;
 $copy-font:   'Average', Garamond, serif;
 
-// media sizes
+// iphone6+
 $phablet-width: "screen and (min-width: 400px)";
+
+// ipad+
 $mtablet-width: "screen and (min-width: 566px)";
+
+// ipad landscape & ipadPro portrait
 $tablet-width:  "screen and (min-width: 769px) and (min-height: 629px)";
+
+// old monitors/small laptops
 $laptop-width: "screen and (min-width: 1025px) and (min-height: 769px)";
+
+// ipadPro landscape & modern laptops
 $desktop-width: "screen and (min-width: 1280px) and (min-height: 800px)";
+
+// modern monitors
 $full-width:    "screen and (min-width: 1440px)";

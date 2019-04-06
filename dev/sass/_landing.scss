@@ -1,14 +1,4 @@
 // left section homepage image and text controls
-  #logoImg { // logo div container
-    margin: 10% auto 0; // doesn't need as much top margin as pages because of menu icon location
-    width: 70%;
-    overflow: visible;
-    position: relative;
-    @include phablet { width: 80%; }
-    @include mtablet { width: 65%; }
-    @include tablet { margin: 5% auto 0; }
-    @include full { width: 75%; }
-  }
 
 // right side main navigation
   #rightNav {

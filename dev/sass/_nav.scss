@@ -10,19 +10,19 @@
   z-index: 500;
 }
 
-#btnAbout {
-  padding: 0;
-  margin: 0em 2.25em 0 0;
-  @include tablet { margin: 1em auto; }
-}
-#btnAbout a {
-  display: inline-block;
-  width: 100%;
-  height: 100%
-}
+// #btnAbout {
+//   padding: 0;
+//   margin: 0em 2.25em 0 0;
+//   @include tablet { margin: 1em auto; }
+// }
+// #btnAbout a {
+//   display: inline-block;
+//   width: 100%;
+//   height: 100%
+// }
 
 #btnNavOpen { background-color: rgba(0, 0, 0, 0.6); }
-#btnAbout a,
+// #btnAbout a,
 #btnNavOpen { padding: 0.625rem 0.875rem; }
 
 
