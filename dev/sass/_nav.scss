@@ -1,171 +1,175 @@
-// homepage buttons only
-#btnNavOpen, /* hide buttons when screen size allows rightNav to show */
-#btnNavClose { @include tablet { display: none; } }
-
-#btnNavClose {
-  border: none;
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  z-index: 500;
+a {
+  color: $white;
+  text-decoration: none;
 }
 
-// #btnAbout {
-//   padding: 0;
-//   margin: 0em 2.25em 0 0;
-//   @include tablet { margin: 1em auto; }
-// }
-// #btnAbout a {
-//   display: inline-block;
-//   width: 100%;
-//   height: 100%
-// }
-
-#btnNavOpen { background-color: rgba(0, 0, 0, 0.6); }
-// #btnAbout a,
-#btnNavOpen { padding: 0.625rem 0.875rem; }
-
-
-#navContainer a.rightNavLink { border-bottom: 1px solid $silver; }
-#navContainer a.rightNavLink:last-of-type { border-bottom: none; }
-
-
-// mixed navigation icon/button controls
-#iconNavOpen,
-#iconNavClose {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  z-index: 500;
-  @include tablet {
-    top: 0.75rem;
-    right: 0.75rem;
-  }
-}
-#iconNavOpen,
-#iconNavClose,
-#btnNavClose, {
-  color: $teal;
-  cursor: pointer;
-}
-#iconNavOpen,
-#btnTop { background-color: rgba(0, 0, 0, 0.9); }
-#iconNavOpen,
-#iconNavClose,
-#btnTop {
-  padding: 0.75rem 1rem;
-  @include tablet {
-    background-color: transparent;
-    border: none;
-  }
-}
-#btnTop { @include tablet { display: none; } } /* mobile layout controled in general.scss, footer section */
-#iconNavOpen,
-#btnTop,
-.btnControl {
-  border: 0.125rem solid $white;
-  border-radius: 0.25em;
-}
-.btnControl { /* used on desktop homepage and other pages' next/previous section buttons */
-  margin-top: 0.5rem;
-  padding: 0.625rem 0.875rem;
-  background-color: $black;
-  color: $teal;
-  font-size: 0.9375rem;
-  letter-spacing: 0.125rem;
-  text-transform: lowercase;
-  @include tablet { background-color: rgba(0, 0, 0, 0.6); }
-}
-
-
-// non-homepage navigation controls
-#navList {
-  margin: 0;
-  padding: 0 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  right: -100%;
-  z-index: 1000;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9);
-  @include tablet { width: 40%; }
-}
-#navList li a {
-  display: block;
-  padding: 1rem 3rem;
-  align-self: stretch;
-  justify-content: space-around;
-  border-bottom: 1px solid $silver;
-  color: $cyan;
-  font-size: 1rem;
-  font-family: $header-font;
-  font-weight: bold;
-  letter-spacing: .2rem;
-}
-
-
-// checkbox-controlled nav
-.cntrlNav { // hides the checkbox
-  display: none;
-  visibility: hidden;
-}
-.cntrlNav ~ #navList {
-  -webkit-transition: right 1s ease-out; // Safari
-  -moz-transition: right 1s ease-out; // Firefox
-  -o-transition: right 1s ease-out; // Opera
-  transition: right 1s ease-out;
-}
-.cntrlNav:checked ~ #navList { right: 0; }
-#navList li a.currentPage { color: #007C88; }
-#navList li:last-child a { border-bottom: none; }
-
-
-// all button/nav link hover controls
-.socialLinks a:hover, /* all button hover controls */
-.btnControl:hover,    /* all button hover controls */
-.btnControl:active,   /* all button hover controls */
-#navList a:hover,     /* all button hover controls */
-#navList a:active,    /* all button hover controls */
-#navContainer a.rightNavLink:hover, /* homepage */
-#navContainer a.rightNavLink:active /* homepage */ {
-  background-color: rgba(0, 0, 0, 0.9);
-  -webkit-animation: glow 0.35s ease-in;
-  -moz-animation: glow 0.35s ease-in;
-  animation: glow 0.35s ease-in;
-}
-@-webkit-keyframes glow {
-  from { background-color: rgba(0, 0, 0, 0.6); }
-  to { background-color: rgba(0, 0, 0, 0.9); }
-}
-@-moz-keyframes glow {
-  from { background-color: rgba(0, 0, 0, 0.6); }
-  to { background-color: rgba(0, 0, 0, 0.9); }
-}
-@-keyframes glow {
-  from { background-color: rgba(0, 0, 0, 0.6); }
-  to { background-color: rgba(0, 0, 0, 0.9); }
-}
-
-
-// sideNav controls for tablet article navigation
-#navList,
-.sideList { list-style: none; }
-.sideNav {
-  display: none;
-  @include tablet {
+// 1 - header mainNav Container
+  #mainNav {
+    padding: 5%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    // z-index: 5000;
+    z-index: 99999999;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 5rem;
-    position: absolute;
-    top: 50%;
-    right: -1rem;
-    transform: translateY(-50%);
-    z-index: 500;
-    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    // align-items: space-between;
+    align-content: space-between;
+    // overflow: hidden;
+    @include landscape { padding: 1em 5%; }
   }
-}
+  // 2 - name link
+    .nameLink {
+      flex: 1 auto;
+      align-self: center;
+      color: $teal;
+      font-family: $subHead-font;
+      font-weight: bold;
+      font-size: 1.0625rem;
+      @include phablet { font-size: 1.125em; }
+      @include mtablet { font-size: 1.1875em; }
+      @include tablet { font-size: 1.25em; }
+      @include laptop { font-size: 1.3125em; }
+    }
+  // 2 - menu icon container (icon appearance controls in svg.scss)
+    #label-menuIcon {
+      flex: 1 50%;
+      text-align: right;
+      z-index: 5000;
+    }
+  // 2 - link elements container
+    #navContainer {
+      margin: 0;
+      padding: 5% 1rem 0;
+      position: absolute;
+      top: -100vh;
+      left: 0;
+      z-index: 1000;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-image: $gradTealToGold2;
+      // @include tablet { width: 100%; }
+      @include landscape {
+        padding: 1em 1em 0;
+        // width: 100%;
+      }
+    }
+    // 3 - link list
+      #navList {
+        flex: 99999 auto;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      // 4 - link element
+        #navList li a {
+          display: block;
+          padding: 1rem 3rem;
+          align-self: stretch;
+          color: $white;
+          font-size: 2rem;
+          font-family: $subHead-font;
+          font-weight: bold;
+          text-transform: uppercase;
+          text-align: center;
+          letter-spacing: 0.2rem;
+          @include phablet { font-size: 2.25em; }
+          @include tablet { font-size: 2.5em; }
+          @include laptop { font-size: 3em; }
+        }
+
+// buttons
+  a.button {
+    margin-bottom: 2%;
+    max-width: 25ch;
+    padding: 0.75em 2em;
+    display: inline-block;
+    border: none;
+    border-radius: 1.5em;
+    background-image: $gradTealToGold2;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.375);
+    -webkit-transition: all 280ms ease-out;
+    -moz-transition: all 280ms ease-out;
+    transition: all 280ms ease-out;
+  }
+
+  .back a {
+    display: inline-block;
+    padding: 0.5rem;
+  }
+  .scrollDown a { color: $teal; }
+
+// checkbox-controls for css-animated navContainer and noscript curtain control
+  .cntrlCurtain,
+  .cntrlNav { // hides the checkbox
+    display: none;
+    visibility: hidden;
+  }
+  .cntrlNav ~ #navContainer { // animate the navContainer
+    -webkit-transition: top 600ms ease-out; // Safari
+    -moz-transition: top 600ms ease-out; // Firefox
+    -o-transition: top 600ms ease-out; // Opera
+    transition: top 600ms ease-out;
+  }
+  .cntrlNav:checked ~ #navContainer { top: 0; }
+
+// all button/nav link hover animation controls
+  a.nameLink:hover,
+  .scrollDown:hover a,
+  h4.back a:hover,
+  h5.back a:hover,
+  #navContainer a:hover,
+  #navContainer a:active,
+  .socialLinks a i:hover { color: $cyan; }
+
+  a.nameLink:hover,
+  .scrollDown:hover a,
+  .socialLinks a i:hover {
+    color: $cyan;
+    -webkit-animation: glow1 0.35s ease-in;
+    -moz-animation: glow1 0.35s ease-in;
+    animation: glow1 0.35s ease-in;
+  }
+  h4.back a:hover,
+  h5.back a:hover,
+  #navContainer a:hover,
+  #navContainer a:active {
+    -webkit-animation: glow2 0.35s ease-in;
+    -moz-animation: glow2 0.35s ease-in;
+    animation: glow2 0.35s ease-in;
+  }
+  // a.button:hover { transform: translateY(-0.125rem); }
+  // a.button:active { transform: translateY(0.125rem); }
+
+
+  @-webkit-keyframes glow1 {
+    from { color: $teal; }
+    to { color: $cyan; }
+  }
+  @-moz-keyframes glow1 {
+    from { color: $teal; }
+    to { color: $cyan; }
+  }
+  @keyframes glow1 {
+    from { color: $teal; }
+    to { color: $cyan; }
+  }
+
+  @-webkit-keyframes glow2 {
+    from { color: $white; }
+    to { color: $cyan; }
+  }
+  @-moz-keyframes glow2 {
+    from { color: $white; }
+    to { color: $cyan; }
+  }
+  @keyframes glow2 {
+    from { color: $white; }
+    to { color: $cyan; }
+  }

@@ -6,4 +6,4 @@
     <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,400i,700|Poiret+One" rel="stylesheet">
 
     <link rel="stylesheet" href="../css/css.css">
-    <!-- <script src="../js/vendor/modernizr-2.8.3.min.js"></script> -->
+    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>

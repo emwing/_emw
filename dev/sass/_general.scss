@@ -1,191 +1,517 @@
-// pageWrap flexbox container controls
-  #pageWrap {
-    margin: 0 auto;
-    position: relative;
-    overflow-x: hidden;
-    background: $teal url("../img/herobg.jpg") repeat-x fixed; /* fallback */
-    background-image: url("../img/asanoha-pattern-opt.svg"), linear-gradient($beige, $teal); /* for general */
-    background-attachment: fixed;
-    background-size: auto 100vh; /* uses js to recalculate height and avoid shifting */
-    @include tablet { overflow: hidden; }
-  }
-// set left and right sections to flex items for non-mobile split screen
-  .flexContainerRow {
-    @include tablet {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      -webkit-transition: all 360ms ease-out; /* for when images needs to change opacity */
-      -moz-transition: all 360ms ease-out;
-      transition: all 360ms ease-out;
-    }
-  }
-  .flexContainerColumn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1em;
-    @include tablet {
-      padding: 0 1em;
-      // align-items: center;
-    }
-  }
-  .flexItem60 { @include tablet { flex: 1 60%; } }
-  .flexItem40 { @include tablet {
-    flex: 1 40%;
-    border-left: 0.25rem solid $beige;
-  } }
-
-  .fullHeight { height: 100vh; }
-
-
-// left section hero image and text controls
-  #heroWrap { @include tablet { height: 100vh; } }
-
-  #heroDiv {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    @include tablet { width: auto; }
-  }
-  #heroImg {
-    margin: 30% auto 0;
-    width: 75%;
-    overflow: hidden;
-    position: relative;
-    @include phablet { margin: 15% auto 0; }
-    @include tablet {
-      max-width: 85%;
-      margin: 5% auto 0;
-      overflow: visible;
-    }
-  }
-  #logo { /* page icon */
-    display: block;
-    margin: 0 auto;
-    // max-height: 100%; /* flexbox handles this */
-    max-width: 100%;
-    @include phablet { max-height: 90%; }
-    @include tablet { max-width: 100%; }
-    @include laptop { max-width: 80%; }
-    @include desktop { max-width: 75%; }
-    @include full { max-width: 25rem; }
-  }
-  #heroTitle  { /* hero image text */
-    margin: 5% 0;
-    padding: 1em 0.5em;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: $white;
-    text-align: center;
-    @include phablet { padding: 1em; }
-    @include tablet { padding: 1em 3em; }
-  }
-  #heroTitle h1 { margin-bottom: 0.25em; }
-  #heroTitle h3 { margin-top: 0.25em; }
-
-// footer controls
-  footer {
-    font-size: 0.75em;
-    text-align: center;
-    width: 100%;
-    @include tablet {
-      align-self: flex-end;
-      padding: 0;
-    }
-  }
-  #footerContainer {
-    padding: 1em 0 0;
-    background-color: $white;
-    color: $black;
-  }
-  .whiteFoot { // on about when bg changes for skills sections
-    background-color: transparent;
-    color: $white;
-  }
-  .socialLinks { /* flex container to evenly space icons */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  #btnTop, /* flex items */
-  .socialLinks a i {
-    padding: 1rem;
-    flex: 1;
-  }
-  .socialLinks a { border-radius: 0.25em; }
-
-
 // general text controls
-  h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    font-family: $header-font;
-    font-weight: normal;
+  h1, h2, h4 { font-family: $main-font; }
+  h3, h5, h6 { font-family: $subHead-font; }
+  h1, h2, h3, h4, h6 { font-weight: normal; }
+  h1, h2, h3, h4, h5, h6 { margin: 0;
     @include interpolate((padding-top, padding-bottom), 20rem, 60rem, 0rem, 0.5rem);
   }
-
+  h1, h2, h3, .fanzineLink { text-shadow: 0 3px 10px rgba(2, 11, 22, 0.5); }
   h1 {
-    margin-bottom: 1rem;
-    line-height: 1em;
-    text-shadow: 0 3px 10px rgba(2, 11, 22, 0.5);
-    font-size: 3rem;
-  //   @include phablet { font-size: 1.5rem; }
-  //   @include tablet { font-size: 1.75rem; }
-  //   @include laptop { font-size: 2rem; }
-    @include phablet { font-size: 3.5rem; }
+    margin-bottom: 0;
+    line-height: 1;
+    font-size: 2.75rem;
+    @include phablet { font-size: 3.25rem; }
     @include mtablet { font-size: 4em; }
-    @include tablet { font-size: 5em; }
-    @include laptop { font-size: 5.5em; }
-    // @include desktop { font-size: 6rem; }
+    @include tablet { font-size: 4.75em; }
+    @include laptop { font-size: 5em; }
+    @include desktop { font-size: 5.5em; }
   }
   h2 {
     margin-bottom: 0.5rem;
     font-size: 1.875rem;
     line-height: 1;
-  //   @include phablet { font-size: 1.25rem; }
-  //   @include tablet { font-size: 1.5rem; }
-  //   @include laptop { font-size: 1.75rem; }
     @include phablet { font-size: 2.1875rem; }
     @include mtablet { font-size: 2.5em; }
     @include tablet { font-size: 2.875em; }
     @include laptop { font-size: 3.125em; }
   }
   h3 {
-    font-size: 1.125rem;
-  //   @include phablet { font-size: 1.125rem; }
-  //   @include tablet { font-size: 1.25rem; }
-  //   @include laptop { font-size: 1.5rem; }
-    @include phablet { font-size: 1.138em; }
-    @include tablet { font-size: 1.266em; }
-    @include laptop { font-size: 1.44em; }
+    margin-bottom: 1em;
+    font-size: 1.25rem;
+    font-weight: bold;
+    @include phablet { font-size: 1.5em; }
+    @include tablet { font-size: 1.75em; }
+    @include laptop { font-size: 2em; }
   }
   h4 {
-    font-size: 1.0625rem;
-    @include phablet { font-size: 1.067em; }
-    @include tablet { font-size: 1.125em; }
-    @include laptop { font-size: 1.2em; } // minor third
+    font-size: 1.125rem;
+    font-weight: bold;
+    @include phablet { font-size: 1.25em; }
+    @include tablet { font-size: 1.5em; }
+    @include laptop { font-size: 1.75em; }
   }
+  h5 {
+    font-size: 1rem;
+    font-weight: bold;
+    @include phablet { font-size: 1.0625em; }
+    @include tablet { font-size: 1.125em; }
+    @include laptop { font-size: 1.25em; }
+  }
+  h1, h2, h3, h4, h5, h6, li { letter-spacing: 0.0625rem; }
+  // special h3s
+    .contentH3 {
+      margin-bottom: 0;
+      text-shadow: none;
+    }
+    .numberH3 {
+      font-family: $main-font;
+      color: $gold2;
+      margin-bottom: 1em;
+      font-size: 1.375rem;
+      @include phablet { font-size: 1.5em; }
+      @include tablet { font-size: 1.625em; }
+      @include laptop { font-size: 2em; }
+    }
+  // special h4s
+    .articleContainer h4 { text-align: center; }
+    h4.contentH4 { text-align: left; }
 
-  h1, h2, h3, h4, h5, h6, p, li { letter-spacing: 0.0625rem; }
+  // special h5s
+    h5.back {
+      padding: 1em 0 0 0;
+      text-transform: uppercase;
+    }
 
-  ol, ul, p { font-family: $copy-font; }
+  .back { font-family: $subHead-font; }
 
+  ol, ul, p { font-family: $main-font; }
   ol, ul {
     margin: 0 1rem;
     font-size: 0.875rem;
     @include laptop { font-size: 1rem; }
   }
-
+  ul { list-style: none; }
+  // special lists
+    #fanzineLinkList {
+      margin: 1em auto 0;
+      width: 90%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      @include landscape {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }
+    #fanzineLinkList li { padding-bottom: 1em;
+      @include landscape { padding-bottom: 0; }
+    }
   p {
     margin: 0 auto 1em;
     max-width: 35rem;
+    line-height: 1.25em;
+    @include mtablet { font-size: 1.04em; }
+    @include tablet { font-size: 1.067em; }
+    @include laptop { font-size: 1.085em; }
   }
+  // special p
+    .articleContainer p { @include landscape { margin: 0 1em 1em; } }
 
-  a {
-    color: $teal;
+// abbreviation
+  abbr[title] {
+    border-bottom: none;
     text-decoration: none;
   }
+
+// anything that needs to start with opacity: 0 and is not necessary if jquery fails
+  .hideMe { opacity: 0; }
+
+// social media
+  .socialLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .socialLinks a i {
+    padding: 1rem;
+    flex: 1 auto;
+    color: $teal;
+  }
+
+
+// homepage opening animation stuff
+  .curtainContainer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    // z-index: 5050;
+    z-index: 99999999999;
+  }
+  .curtain {
+    background-color: $blue;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: none;
+    -moz-transform: none;
+    transform: none;
+    will-change: transform;
+    z-index: 1060;
+  }
+  // controls when javascript is disabled: offer warning and checkbox link to raise curtain and enter site
+    input[name="cntrlCurtain"]:checked ~ #curtain,
+    .raise .curtain {
+      -webkit-transform: translateY(-103%);
+      -moz-transform: translateY(-103%);
+      transform: translateY(-103%);
+      -webkit-transition: all 750ms ease-in-out;
+      -moz-transition: all 750ms ease-in-out;
+      transition: all 750ms ease-in-out;
+    }
+    div.curtainContainer div:first-of-type {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    input[name="cntrlCurtain"]:checked + #curtainContainer { display: none; }
+    #label-cntrlCurtain { cursor: pointer; }
+
+
+// 1 - section for fullscreen
+  .fullSection,
+  .longSection,
+  .partialSection {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+  .fullSection { height: 100vh; }
+  .longSection { height: auto;
+    @include landscape { min-height: 100vh; }
+  }
+  .infoSection {
+    background-color: $white;
+    color: $black;
+  }
+  .partialSection {
+    min-height: 35vh;
+    background-image: $gradTealToGold2;
+    color: $white;
+  }
+  .infoSection,
+  .partialSection { z-index: 6000; }
+  .projectInfo { flex-wrap: wrap; }
+
+  // 2 - div containers for img/svg, articles, & text
+    .contentContainer,
+    .partialContainer,
+    .fullImg { position: relative; }
+
+    .contentContainer,
+    // .partialContainer,
+    .titleContainer,
+    .fullImg { width: 100%; }
+    .contentContainer,
+    .titleContainer,
+    .fullImg { display: flex; }
+    // .partialContainer,
+    .contentContainer {
+      height: 100%;
+      flex-direction: column;
+    }
+    #scrollHint {
+      position: fixed;
+      bottom: 0;
+      right: 5%;
+      z-index: 5000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      width: 1.5em;
+      height: 12.5%;
+      width: auto;
+      transition: all 100ms ease-in-out;
+      overflow-y: hidden;
+      @include tablet { height: 15%; }
+      @include landscape {
+        height: auto;
+        transition: all 300ms ease-in-out;
+        left: 5%;
+        right: auto;
+      }
+    }
+      #scrollHint p {
+        flex: 99999999999 auto;
+        font-family: $subHead-font;
+        font-size: 0.875em;
+        text-align: right;
+        writing-mode: vertical-rl;
+        color: $white;
+      }
+
+    .scrollDown {
+      max-width: 6em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    // .homeContainer's max-height: 667px  ------>  ***set with jq***
+    .contentContainer {
+      @include landscape {
+        max-height: 100%;
+        flex-direction: row;
+      }
+    }
+    .infoContainer {
+      padding: 25% 10% 5% 10%;
+      color: $black;
+      @include mtablet { padding: 20% 10% 5% 10%; }
+      @include landscape { padding: 10% 10% 5%; }
+    }
+    .titleContainer {
+      top: 2.5%;
+      left: 0;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      z-index: 100000000000;
+      text-align: left;
+      @include landscape { top: 5%; }
+      @include laptop { top: 0; }
+    }
+    .partialContainer {
+      margin: 0 auto;
+      // justify-content: center;
+      // align-self: center;
+      text-align: center;
+    }
+    #summary { height: auto; } // samurai troopers div
+    #whoIAm { // about me div
+      @include landscape {
+        flex-direction: row-reverse;
+        align-items: center;
+      }
+    }
+    #myPassions, // about me divs
+    #mySkills { height: auto;
+      @include landscape { padding: 10% 10% 0; }
+      // @include desktop { padding: 10% 10% 0; }
+    }
+    #mySkills { @include tablet { flex-direction: row; } }
+
+    .fullImg {
+      padding: 0 5%;
+      flex-direction: row;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+    }
+    .bigImg {
+      padding: 0 0 5% 0;
+      width: 100%;
+      height: 50vh;
+      @include landscape { height: 75vh; }
+      @include desktop { height: 100vh; }
+    }
+    #webdesignmosaic { background-image: url(../samuraitroopers/img/webdes-stMosaic.jpg); }
+    #socialmediamosaic { background-image: url(../samuraitroopers/img/socmed-stMosaic.jpg); }
+
+    .introSVGs,
+    .imgContainer,
+    .imgHeader,
+    .textContainer,
+    .textHeader,
+    .titleContainer { position: absolute; }
+
+    // 3a, b, c, d elements - img/svgContainer & text & articles
+      .svgContainer {
+        margin-top: -7.5%;
+        height: 100%;
+        width: 100%;
+        z-index: 10;
+        @include mtablet { margin-top: -10%; }
+        @include landscape { margin-top: 0; }
+      }
+
+    // 3b - textContainer / textHeader
+      #introText { bottom: 20%;
+        @include mtablet { bottom: 15%; }
+        @include landscape { bottom: auto; }
+      }
+      .textContainer { bottom: 7.5%; // homepage
+        @include phablet { bottom: 10%; }
+      }
+      .textHeader { bottom: 20%; // work/about pages
+        @include phablet { bottom: 25%; }
+        @include tablet { bottom: 10%; }
+      }
+      .textHeader,
+      .textContainer {
+        left: 10%;
+        z-index: 100;
+        color: $white;
+        @include landscape {
+          top: 60%;
+          bottom: auto;
+          transform: translateY(-50%);
+        }
+      }
+
+    // 3c - articleContainer
+      .articleContainer {
+        padding-bottom: 2em;
+        flex: 1 33%;
+        @include landscape { padding-bottom: 0; }
+      }
+      .textHeavy { @include landscape { padding-top: 5%; } }
+
+    // 3d - images and icons
+      .iconsSVG {
+        margin: 0 auto 1em;
+        width: 50%;
+        max-width: 10rem;
+        display: block;
+      }
+      .articleImg {
+        padding-bottom: 1em;
+        width: 100%;
+        text-align: center;
+        flex: 1 auto;
+        @include mtablet {
+          padding-left: 1em;
+          width: 90%;
+          flex: 1 99999999999%;
+        }
+        @include landscape {
+          padding: 0;
+          width: 50%;
+          max-height: 650px;
+          flex: 1 auto;
+          text-align: right;
+        }
+      }
+      .imgContainer,
+      .imgHeader,
+      .bigImg {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .imgContainer,
+      .imgHeader {
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 50;
+      }
+      .imgContainer { // homepage
+        width: 85%;
+        height: 56.5vh;
+        top: 10%;
+        overflow-y: hidden;
+        border-radius: 0.125rem;
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.375);
+        @include landscape {
+          width: 55%;
+          height: 75vh;
+          top: 50%;
+          left: auto;
+          right: 7.5%;
+          transform: translate(0, -50%);
+        }
+        @include full {
+          width: 60%;
+          height: 80vh;
+        }
+      }
+      .imgHeader { // page headers
+        width: 100%;
+        height: 66.5vh;
+        top: 0;
+        @include landscape {
+          width: 60%;
+          height: 100vh;
+          left: auto;
+          right: 0;
+          transform: translate(0, 0);
+        }
+      }
+      #ystProjectImg { background-image: url(../img/sword-birds_landscape.jpg); }
+      #aboutImg { background-image: url(../img/suki-samezu.jpg); }
+      #contactImg { background-image: url(../img/tea-with-me.jpg); }
+      .colorBlock {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: $teal;
+      }
+
+      // 4a - div containing individual introSVGs
+        .svgElement {
+          width: 100%;
+          // min-height: 100vh;
+          // height: 100vh;
+          display: flex;
+          justify-content: center;
+          z-index: 20;
+          @include landscape {
+            overflow: visible;
+            height: 100vh;
+          }
+          @include laptop { left: 35%; }
+          @include full { left: 27.5%; }
+        }
+
+          // 5a - individual svgs
+            .introSVGs {
+              margin: 0 auto;
+              height: 70vh;
+              top: -7.5%;
+              left: 50%;
+              transform: translate(-50%, 0);
+              @include phablet { height: 75vh; }
+              @include mtablet { height: 90vh; }
+              @include landscape {
+                width: 100%;
+                height: 100vh;
+                top: 50%;
+                left: 40%;
+                transform: translate(0, -50%);
+              }
+              @include full { width: 95%; };
+            }
+            svg.introSVGs { overflow: visible !important; } // override normalize
+
+          // 5b - software icon list
+            .softwareSkills {
+              width: 100%;
+              position: relative;
+              display: flex;
+              flex-direction: row;
+              flex-wrap: nowrap;
+              align-items: center;
+            }
+
+            // 6 - individual svgs & h5s
+              .softwareSkills svg {
+                width: 75px;
+                height: 75px;
+                flex: 1 1 auto;
+                @include laptop {
+                  width: 100px;
+                  height: 100px;
+                }
+              }
+              .softwareSkills h5 {
+                padding-left: 5%;
+                width: 90%;
+                flex: 1 1 90%;
+              }

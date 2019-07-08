@@ -1,0 +1,15 @@
+<svg id="bgGradientSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1500" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="linear-gradient-blueToTp" x1="750" x2="750" y2="1500" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#423c56"/>
+      <stop offset="0.42" stop-color="#403b54" stop-opacity="0.98"/>
+      <stop offset="0.59" stop-color="#3b364d" stop-opacity="0.89"/>
+      <stop offset="0.72" stop-color="#312d40" stop-opacity="0.75"/>
+      <stop offset="0.83" stop-color="#24212f" stop-opacity="0.54"/>
+      <stop offset="0.93" stop-color="#121118" stop-opacity="0.28"/>
+      <stop offset="1" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <title>background gradient effect</title>
+  <rect id="bgGradient" width="1500px" height="1500px"/>
+</svg>

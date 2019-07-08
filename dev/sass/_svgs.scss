@@ -1,0 +1,349 @@
+// svg appearance controls
+  #bgGradientSVG {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    fill: url(#linear-gradient-blueToTp);
+  }
+  .referenceSVG {
+    z-index: 1;
+    display: none;
+  }
+  #sass { fill: #C66395; }
+  #wordpress { fill: #00AADC; }
+  .phpRadGrad { fill: url(#phpRadGrad); }
+  .phpPurple { fill: #777BB3; }
+  #jquery { fill: #78CFF5; }
+  #javascript { fill: #F7DF1E; }
+  #css { fill: #0C70B3; }
+  #html { fill: #EA642B; }
+  #photoshop { fill: #08AFDE; }
+  #illustrator { fill: #E47002; }
+  #indesign { fill: #FF408C; }
+  #acrobat { fill: #E01408; }
+  .cspBg { fill: #E7E8E8; }
+  .csp { fill: #4C4C4C; }
+  #sketchup { fill: #E72B2D; }
+  #word { fill: #295495; }
+  #excel { fill: #00823F; }
+  #powerpoint { fill: #CA4223; }
+  .gdy { fill: #ffd04a; }
+  .gdb { fill: #4688f4; }
+  .gdg { fill: #1ca261; }
+  #glowGradient { fill: url(#radial-gradient); }
+  .fillGold { fill: $gold1; }
+  .fillGold2 { fill: $gold2; }
+  .fillWh { fill: $white; }
+  .fillTeal { fill: $teal; }
+  .fillBlue { fill: $blue; }
+  .fillBlk { fill: $black; }
+  #menuSVG,
+  .fillNone { fill: none; }
+  .strokeWh,
+  .strokeGold,
+  .strokeGold2,
+  .strokeTeal,
+  #scrollDownSVG,
+  #menuSVG {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .iconsSVG,
+  .strokeGold,
+  .strokeTeal { stroke-width: 3px; }
+  .strokeGold2 { stroke-width: 2px; }
+  #scrollDownSVG { stroke-width: 1.5px; }
+  .strokeWh { stroke-width: 1px; }
+
+  #scrollDownSVG,
+  .strokeTeal { stroke: $teal; }
+  .strokeWh { stroke: $white; }
+  .strokeGold { stroke: $gold1; }
+  .iconsSVG,
+  .strokeGold2 { stroke: $gold2; }
+
+  .lineHzSVG {
+    margin-right: 1%;
+    width: 4%;
+    height: 10px;
+    align-self: center;
+  }
+  .lineVtSVG {
+    padding-left: 1%;
+    width: 10px;
+    flex: 1 45%;
+    @include landscape { flex: 1 40%; }
+  }
+
+  .decoHzLines {
+    width: 50%;
+    height: 1.5em;
+    // padding-left: 5%;
+    stroke-dasharray: 150 300;
+    stroke-dashoffset: 0;
+    // animation: dhl 600ms forwards 600ms ease-in-out 1;
+  }
+
+  #scrollDownSVG {
+    max-width: 6em;
+    stroke-dasharray: 50 60;
+    // stroke-dashoffset: 48;
+    -webkit-animation: sda 350ms forwards ease-in-out 1;
+    -moz-animation: sda 350ms forwards ease-in-out 1;
+    animation: sda 350ms forwards ease-in-out 1;
+  }
+  #scrollDownDiv a:active + #scrollDownSVG,
+  #scrollDownDiv:hover #scrollDownSVG {
+    -webkit-animation: sdaH 350ms forwards ease-in-out 1;
+    -moz-animation: sdaH 350ms forwards ease-in-out 1;
+    animation: sdaH 350ms forwards ease-in-out 1;
+  }
+  // scrollDownSVG animation
+    @keyframes sda {
+      from {
+        stroke: $cyan;
+        stroke-dashoffset: 0%;
+      }
+      to {
+        stroke: $teal;
+        stroke-dashoffset: -80%;
+      }
+    }
+    @-webkit-keyframes sda {
+      from {
+        stroke: $cyan;
+        stroke-dashoffset: 0%;
+      }
+      to {
+        stroke: $teal;
+        stroke-dashoffset: -80%;
+      }
+    }
+    @-moz-keyframes sda {
+      from {
+        stroke: $cyan;
+        stroke-dashoffset: 0%;
+      }
+      to {
+        stroke: $teal;
+        stroke-dashoffset: -80%;
+      }
+    }
+  // scrollDownSVG hover animation
+    @keyframes sdaH {
+      from {
+        stroke: $teal;
+        stroke-dashoffset: -80%;
+      }
+      to {
+        stroke: $cyan;
+        stroke-dashoffset: 0%;
+      }
+    }
+    @-webkit-keyframes sdaH {
+      from {
+        stroke: $teal;
+        stroke-dashoffset: -80%;
+      }
+      to {
+        stroke: $cyan;
+        stroke-dashoffset: 0%;
+      }
+    }
+    @-moz-keyframes sdaH {
+      from {
+        stroke: $teal;
+        stroke-dashoffset: -80%;
+      }
+      to {
+        stroke: $cyan;
+        stroke-dashoffset: 0%;
+      }
+    }
+
+
+  // grow decoHzLines
+    // @keyframes dhl {
+    //   from { stroke-dashoffset: 150; }
+    //   to { stroke-dashoffset: 0; }
+    // }
+    // @-webkit-keyframes dhl {
+    //   from { stroke-dashoffset: 150; }
+    //   to { stroke-dashoffset: 0; }
+    // }
+    // @-moz-keyframes dhl {
+    //   from { stroke-dashoffset: 150; }
+    //   to { stroke-dashoffset: 0; }
+    // }
+
+
+// menu icon
+  #menuSVG {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    stroke-width: 0.1875rem;
+  }
+  #outerLines { stroke-dasharray: 21; }
+  #innerLines { stroke-dasharray: 16; }
+  .outerM, .innerM { stroke: $teal; }
+
+// DESKTOP start as X on load, but then run animation to be menu bars
+  .outerM {
+    stroke-dashoffset: -21;
+    @include landscape {
+      stroke-dashoffset: 0;
+      animation: oToX 600ms forwards ease-in-out 1;
+    }
+  }
+  .innerM {
+    stroke-dashoffset: 0;
+    @include landscape {
+      stroke-dashoffset: -16;
+      animation: iToX 600ms forwards ease-in-out 1;
+    }
+  }
+// start as menu bars then change to X
+  .cntrlNav:checked ~ #label-menuIcon #menuSVG #outerLines {
+    stroke: $white;
+    stroke-dashoffset: 0;
+    @include landscape {
+      stroke-dashoffset: -21;
+      animation: oToM 700ms forwards ease-in-out 1;
+    }
+  }
+  .cntrlNav:checked ~ #label-menuIcon #menuSVG #innerLines {
+    stroke: $white;
+    stroke-dashoffset: -16;
+    @include landscape {
+      stroke-dashoffset: 0;
+      animation: iToM 700ms forwards ease-in-out 1;
+    }
+  }
+  // change to X
+    @keyframes oToM {
+      from {
+        stroke: $teal;
+        stroke-dashoffset: -21;
+      }
+      to {
+        stroke: $white;
+        stroke-dashoffset: 0;
+      }
+    }
+    @-webkit-keyframes oToM {
+      from {
+        stroke: $teal;
+        stroke-dashoffset: -21;
+      }
+      to {
+        stroke: $white;
+        stroke-dashoffset: 0;
+      }
+    }
+    @-moz-keyframes oToM {
+      from {
+        stroke: $teal;
+        stroke-dashoffset: -21;
+      }
+      to {
+        stroke: $white;
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes iToM {
+      from {
+        stroke: $teal;
+        stroke-dashoffset: 0;
+      }
+      to {
+        stroke: $white;
+        stroke-dashoffset: -16;
+      }
+    }
+    @-webkit-keyframes iToM {
+      from {
+        stroke: $teal;
+        stroke-dashoffset: 0;
+      }
+      to {
+        stroke: $white;
+        stroke-dashoffset: -16;
+      }
+    }
+    @-moz-keyframes iToM {
+      from {
+        stroke: $teal;
+        stroke-dashoffset: 0;
+      }
+      to {
+        stroke: $white;
+        stroke-dashoffset: -16;
+      }
+    }
+
+  // change to menu bars
+    @keyframes oToX {
+      from {
+        stroke: $white;
+        stroke-dashoffset: 0;
+      }
+      to {
+        stroke: $teal;
+        stroke-dashoffset: -21;
+      }
+    }
+    @-webkit-keyframes oToX {
+      from {
+        stroke: $white;
+        stroke-dashoffset: 0;
+      }
+      to {
+        stroke: $teal;
+        stroke-dashoffset: -21;
+      }
+    }
+    @-moz-keyframes oToX {
+      from {
+        stroke: $white;
+        stroke-dashoffset: 0;
+      }
+      to {
+        stroke: $teal;
+        stroke-dashoffset: -21;
+      }
+    }
+    @-webkit-keyframes iToX {
+      from {
+        stroke: $white;
+        stroke-dashoffset: -16;
+      }
+      to {
+        stroke: $teal;
+        stroke-dashoffset: 0;
+      }
+    }
+    @-moz-keyframes iToX {
+      from {
+        stroke: $white;
+        stroke-dashoffset: -16;
+      }
+      to {
+        stroke: $teal;
+        stroke-dashoffset: 0;
+      }
+    }
+    @keyframes iToX {
+      from {
+        stroke: $white;
+        stroke-dashoffset: -16;
+      }
+      to {
+        stroke: $teal;
+        stroke-dashoffset: 0;
+      }
+    }

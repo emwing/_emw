@@ -1,5 +1,5 @@
 <nav id="mainNav" class="mainNav">
-  <a href="/" class="nameLink">Emily Wing</a>
+  <a href="/testing123/" class="nameLink">Emily Wing</a>
 
   <input type="checkbox" name="cntrlNav" id="cntrlNav" class="cntrlNav">
   <!-- <label for="cntrlNav" id="label-iconNavOpen"><i id="iconNavOpen" class="fa fa-bars fa-2x"></i></label> -->
@@ -22,10 +22,10 @@
 
   <div id="navContainer">
     <ul id="navList">
-      <li><a href="/" class="sectionNav">Home</a></li>
-      <li><a href="/samuraitroopers" class="sectionNav">Work</a></li>
-      <li><a href="/about" class="sectionNav">About</a></li>
-      <li><a href="/#contactMe" class="sectionNav contactLink">Contact</a></li>
+      <li><a href="/testing123/" class="sectionNav">Home</a></li>
+      <li><a href="/testing123/about" class="sectionNav">About</a></li>
+      <li><a href="/testing123/samuraitroopers" class="sectionNav">Work</a></li>
+      <li><a href="/testing123/#contact" class="sectionNav">Contact</a></li>
     </ul>
   </div>
 </nav>

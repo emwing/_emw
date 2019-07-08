@@ -1,0 +1,48 @@
+<svg id="menuSVG" class="referenceSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 33" width="0" height="0" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <!-- <defs> -->
+    <!-- /* <style>
+      .navSVGLines {
+        fill: none;
+        stroke: #00a4b3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+      .outer {
+        stroke-dasharray: 21;
+        stroke-dashoffset: -21;
+        animation: outLines 280ms forwards ease-in-out;
+      }
+      .inner {
+        stroke-dasharray: 16;
+        stroke-dashoffset: 0;
+        animation: centerLine 280ms forwards ease-in-out;
+      }
+      @keyframes outLines { to { stroke-dashoffset: 0; } }
+      @keyframes centerLine { to { stroke-dashoffset: -16; } }
+    </style> */ -->
+    <!-- <symbol id="iconNavOpen" viewBox="0 0 34 33">
+      <g id="outerLines" class="navSVGLines outer">
+        <polyline id="bottomRight" points="17 16.5 32 31.5 17 31.5"/>
+        <polyline id="bottomLeft" points="17 16.5 2 31.5 17 31.5"/>
+        <polyline id="topRight" points="17 16.5 32 1.5 17 1.5"/>
+        <polyline id="topLeft" points="17 16.5 2 1.5 17 1.5"/>
+      </g>
+      <g id="innerLines" class="navSVGLines inner">
+        <line id="innerLeft" x1="1.5" y1="16.5" x2="16.5" y2="16.5"/>
+        <line id="innerRight" x1="32.5" y1="16.5" x2="16.5" y2="16.5"/>
+      </g>
+    </symbol>
+  </defs> -->
+  <title>menu icon</title>
+    <g id="outerLines" class="navSVGLines outer">
+      <polyline id="bottomRight" points="17 16.5 32 31.5 17 31.5"/>
+      <polyline id="bottomLeft" points="17 16.5 2 31.5 17 31.5"/>
+      <polyline id="topRight" points="17 16.5 32 1.5 17 1.5"/>
+      <polyline id="topLeft" points="17 16.5 2 1.5 17 1.5"/>
+    </g>
+    <g id="innerLines" class="navSVGLines inner">
+      <line id="innerLeft" x1="1.5" y1="16.5" x2="16.5" y2="16.5"/>
+      <line id="innerRight" x1="32.5" y1="16.5" x2="16.5" y2="16.5"/>
+    </g>
+</svg>

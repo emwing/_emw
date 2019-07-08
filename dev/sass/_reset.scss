@@ -6,11 +6,15 @@
 
 html {
   box-sizing: border-box;
-  background-image:-webkit-gradient(linear, left top, left bottom, from(#072142), color-stop(#061c37), color-stop(#07182b), color-stop(#061220), to(#020b16));
-  background-image:-webkit-linear-gradient(top, #072142, #061c37, #07182b, #061220, #020b16);
-  background-image:-o-linear-gradient(top, #072142, #061c37, #07182b, #061220, #020b16);
-  background-image:linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16);
+  background-color: $blue;
+  background-image: url("../img/patternbg-2019.jpg");
+  background-repeat: repeat;
+  background-size: 15%;
+  background-attachment: fixed;
+  @include desktop { background-size: 10%; }
 }
+
+body { overflow-x: hidden; }
 
 *,
 *:before,
@@ -21,3 +25,15 @@ img {
   max-width: 100%;
   image-rendering: -webkit-optimize-contrast; /* fix chrome's image sharpness per: https://medium.freecodecamp.org/-898b38a6c0e1 */
 }
+
+// custom scrollbar fun
+  ::-webkit-scrollbar { width: 0.25rem; } // track width
+  ::-webkit-scrollbar-track {
+    background: $blue;
+    border-radius: 0.125rem;
+  } // track color
+  ::-webkit-scrollbar-thumb {
+    background: $white;
+    border-radius: 0.125rem;
+  } // handle
+  ::-webkit-scrollbar-thumb:hover { background: $gold1; } // handle on hover

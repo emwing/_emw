@@ -1,14 +1,22 @@
 // colors
 $black:  #111111;
+$white:  #ffffff;
+$gold1:  #f2e269;
+$gold2:  #AA9D39;
 $silver: #2D313A;
+$blue:   #423c56;
 $cyan:   #03e6fb;
 $teal:   #00a4b3;
-$white:  #ffffff;
 $beige:  #ffffe2;
 
+$gradTealToGold2: linear-gradient(200deg, #AA9D39, #00a4b3);
+
 // fonts
-$header-font: 'Courgette', 'Courier New', cursive;
-$copy-font:   'Average', Garamond, serif;
+$main-font: 'Gentium Book Basic', Garamond, serif;
+$subHead-font:   'Poiret One', Arial, sans-serif;
+
+// coded for mobile-first, default orientation: portrait
+$landscape-orientation: "screen and (orientation:landscape)";
 
 // iphone6+
 $phablet-width: "screen and (min-width: 400px)";
@@ -17,13 +25,16 @@ $phablet-width: "screen and (min-width: 400px)";
 $mtablet-width: "screen and (min-width: 566px)";
 
 // ipad landscape & ipadPro portrait
-$tablet-width:  "screen and (min-width: 769px) and (min-height: 629px)";
+$tablet-width:  "screen and (min-width: 768px)";
+// $tablet-width:  "screen and (min-width: 769px) and (min-height: 629px)";
 
 // old monitors/small laptops
-$laptop-width: "screen and (min-width: 1025px) and (min-height: 769px)";
+$laptop-width: "screen and (min-width: 1024px)";
+// $laptop-width: "screen and (min-width: 1025px) and (min-height: 769px)";
 
 // ipadPro landscape & modern laptops
-$desktop-width: "screen and (min-width: 1280px) and (min-height: 800px)";
+$desktop-width: "screen and (min-width: 1280px)";
+// $desktop-width: "screen and (min-width: 1280px) and (min-height: 800px)";
 
 // modern monitors
 $full-width:    "screen and (min-width: 1440px)";

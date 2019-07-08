@@ -35,6 +35,12 @@
 
 
 // media queries
+@mixin landscape {
+	@media #{$landscape-orientation} {
+		@content;
+	}
+}
+
 @mixin phablet {
   @media #{$phablet-width} {
     @content;
